@@ -33,7 +33,11 @@ export const jewellers: Jeweller[] = [
     reviewsCount: 347,
     openingTimes: "Monday to Saturday 10am - 7pm",
     image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=2000&auto=format&fit=crop",
-    socials: { twitter: "#", facebook: "#", instagram: "#" },
+    socials: { 
+      twitter: "https://twitter.com/harpertait", 
+      facebook: "https://facebook.com/harpertait", 
+      instagram: "https://instagram.com/harpertait" 
+    },
     longDescription: "Harper Tait has been a prominent name in Hatton Garden, dedicated to creating exquisite fine jewellery and bespoke engagement rings.",
   },
   {

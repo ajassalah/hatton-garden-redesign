@@ -27,9 +27,9 @@ const Footer = () => {
             <h4 className="text-[11px] text-spaced font-bold mb-8">Our District</h4>
             <ul className="space-y-4 text-sm text-black/60 font-light">
               <li><Link href="/jewellers" className="hover:text-black transition-colors">Find a Jeweller</Link></li>
-              <li><Link href="#" className="hover:text-black transition-colors">Where to Eat</Link></li>
-              <li><Link href="#" className="hover:text-black transition-colors">Events</Link></li>
-              <li><Link href="#" className="hover:text-black transition-colors">Hatton Garden Card</Link></li>
+              <li><Link href="/eat-and-drink" className="hover:text-black transition-colors">Where to Eat</Link></li>
+              <li><Link href="/blog" className="hover:text-black transition-colors">Blog</Link></li>
+              <li><Link href="/getting-here" className="hover:text-black transition-colors">How to Visit</Link></li>
             </ul>
           </div>
 
@@ -37,9 +37,10 @@ const Footer = () => {
             <h4 className="text-[11px] text-spaced font-bold mb-8">Information</h4>
             <ul className="space-y-4 text-sm text-black/60 font-light">
               <li><Link href="/about" className="hover:text-black transition-colors">About Us</Link></li>
-              <li><Link href="#" className="hover:text-black transition-colors">Contact</Link></li>
+              <li><Link href="/contact" className="hover:text-black transition-colors">Contact</Link></li>
               <li><Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link></li>
               <li><Link href="#" className="hover:text-black transition-colors">Terms of Use</Link></li>
+              <li><Link href="#" className="hover:text-black transition-colors">FAQ </Link></li>
             </ul>
           </div>
 
