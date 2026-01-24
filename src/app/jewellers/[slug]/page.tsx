@@ -289,7 +289,8 @@ const JewellerDetailPage = () => {
       ...data,
       date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
       avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(data.author)}&background=f0f0f0&color=000`,
-      itemImages: data.images
+      itemImages: data.images,
+      role: "Verified Customer"
     };
     setLocalTestimonials([newTestimonial, ...localTestimonials]);
     setActiveTestimonialIndex(0);
