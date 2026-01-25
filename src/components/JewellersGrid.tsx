@@ -16,17 +16,18 @@ interface JewellerCardProps {
 
 const JewellerCard = ({ name, category, image, slug, className = "" }: JewellerCardProps) => (
   <Link href={`/jewellers/${slug}`} className={`group cursor-pointer overflow-hidden block ${className}`}>
-    <div className="relative aspect-[4/5] w-full overflow-hidden">
+    <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100">
       <Image
         src={image}
         alt={name}
         fill
         className="object-cover transition-transform duration-700 group-hover:scale-110"
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
       />
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors" />
-      <div className="absolute bottom-6 left-6 right-6">
-        <p className="text-white/70 text-[10px] text-spaced mb-1">{category}</p>
-        <h3 className="text-white text-xl font-light tracking-wide">{name}</h3>
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+      <div className="absolute bottom-0 left-0 right-0 bg-black p-6">
+        <p className="text-white/50 text-[9px] lg:text-[10px] text-spaced mb-1 uppercase tracking-[0.2em]">{category}</p>
+        <h3 className="text-white text-lg lg:text-xl font-medium tracking-tight">{name}</h3>
       </div>
     </div>
   </Link>
@@ -41,12 +42,12 @@ const JewellersGrid = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
-            <p className="text-black/50 text-spaced mb-4">Discover the Collections</p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight">
-              Hatton Garden <span className="font-semibold italic font-serif">Jewellers</span>
+            <p className="text-black/50 text-spaced mb-4 text-xs lg:text-sm">DISCOVER THE COLLECTIONS</p>
+            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight">
+              Most Populer <span className="font-semibold italic font-serif">Jewellers</span>
             </h2>
           </div>
-          <Link href="/jewellers" className="text-[11px] text-spaced font-bold border-b border-black pb-1 hover:opacity-60 transition-opacity flex items-center group">
+          <Link href="/jewellers" className="text-[10px] lg:text-[11px] text-spaced font-bold border-b border-black pb-1 hover:opacity-60 transition-opacity flex items-center group">
             See All Jewellers <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

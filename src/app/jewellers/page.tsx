@@ -108,31 +108,35 @@ const JewellersPage = () => {
       <Navbar />
       
       {/* Hero Header with Background Image */}
-      <div className="relative h-[40vh] md:h-[60vh] min-h-[350px] flex items-end">
-        <Image 
-          src="/purchesing .png"
-          alt="Our Jewellers Header"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+      <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center bg-black text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/purchesing .png"
+            alt="Our Jewellers Header"
+            fill
+            className="object-cover opacity-70"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black"></div>
+        </div>
         
-        <div className="container mx-auto px-6 md:px-12 relative z-10 pb-12 w-full">
-          <div className="flex items-center space-x-2 text-white/50 text-[9px] md:text-[10px] text-spaced mb-4 md:mb-6">
+        <div className="container mx-auto px-6 md:px-12 relative z-10 text-center pt-20">
+          <div className="flex items-center justify-center space-x-2 text-white/60 text-[10px] text-spaced mb-6">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
             <ChevronRight size={10} />
             <span className="text-white">OUR JEWELLERS</span>
           </div>
           
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-light tracking-tight text-white mb-4">Our Jewellers</h1>
-            <p className="text-white/70 font-light italic font-serif text-lg md:text-xl border-l border-white/20 pl-6 leading-relaxed">
-             Browse our curated list of Hatton Garden jewellers to discover trusted specialists in diamonds, bespoke rings, and luxury jewellery.
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">
+              Our <span className="font-semibold italic font-serif">Jewellers</span>
+            </h1>
+            <p className="text-white/70 max-w-2xl mx-auto font-light leading-relaxed text-xl">
+              Browse our curated list of Hatton Garden jewellers to discover trusted specialists in diamonds, bespoke rings, and luxury jewellery.
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Search and Filter Section */}
       <div className="bg-white border-b border-platinum py-8 md:py-12">
@@ -193,7 +197,7 @@ const JewellersPage = () => {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 text-[9px] text-spaced font-bold text-black border border-platinum uppercase">
+                      <div className="absolute top-4 left-4 bg-black px-3 py-1 text-[9px] text-spaced font-bold text-white border border-white/10 uppercase">
                         {jeweller.category}
                       </div>
                       <div className="absolute top-4 right-4 bg-black/80 text-white px-2 py-1 text-[10px] flex items-center space-x-1 backdrop-blur-sm">

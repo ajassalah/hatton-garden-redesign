@@ -23,10 +23,10 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-3xl">
-          <p className="text-white/80 text-spaced mb-6 animate-fade-in-up">
+          <p className="text-white/80 text-spaced mb-6 animate-fade-in-up text-xs lg:text-sm">
             London's Historic Diamond District
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-light tracking-tight mb-8 leading-[1.1] animate-fade-in-up [animation-delay:200ms]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white font-light tracking-tight mb-8 leading-[1.1] animate-fade-in-up [animation-delay:200ms]">
             The Heart of <br />
             <span className="font-semibold italic font-serif">Luxury Jewellery</span>
           </h1>
@@ -35,9 +35,9 @@ const Hero = () => {
               Explore Our Jewellers
               <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <button className="px-10 py-5 bg-transparent border border-white/30 text-white text-spaced text-[11px] font-bold hover:bg-white/10 transition-all duration-300">
+            <Link href="/book-appointment" className="px-10 py-5 bg-transparent border border-white/30 text-white text-spaced text-[11px] font-bold hover:bg-white/10 transition-all duration-300">
               Plan Your Visit
-            </button>
+            </Link>
           </div>
         </div>
       </div>

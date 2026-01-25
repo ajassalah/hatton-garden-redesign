@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 
-const Navbar = ({ solid = false }: { solid?: boolean }) => {
+const Navbar = ({ solid = false, hideBookButton = false }: { solid?: boolean; hideBookButton?: boolean }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -55,18 +55,17 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
 
   const navLinks = [
     { name: "Our Jewellers", href: "/jewellers" },
-    { name: "About Us", href: "/about" },
-    { name: "Blog", href: "/blog" },
+    { name: "Categories", href: "/categories" },
     { 
-      name: "Categories", 
+      name: "Visit", 
       href: "#", 
       dropdown: [
-        { name: "Store Categories", href: "/categories" },
-        { name: "Business & Directory", href: "/#business&directory" },
-        { name: "Eat and Drink", href: "/#eat&drink" },
-        { name: "Getting here", href: "/getting-here" },
+        { name: "Eat and Drink", href: "/eat-drink" },
+        { name: "Getting Here", href: "/getting-here" },
       ]
     },
+    { name: "About Us", href: "/about" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -76,13 +75,13 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isLightMode ? "bg-white/95 backdrop-blur-md py-4 shadow-md" : "bg-transparent py-8"
+          isLightMode ? "bg-white py-4 shadow-md" : "bg-transparent py-8"
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className={`text-2xl font-light tracking-[0.3em] uppercase transition-colors duration-500 ${isLightMode ? "text-black" : "text-white"}`}>
+            <span className={`text-xl lg:text-2xl font-light tracking-[0.1em] uppercase transition-colors duration-500 ${isLightMode ? "text-black" : "text-white"}`}>
               Hatton <span className="font-semibold">Garden</span>
             </span>
           </Link>
@@ -97,7 +96,7 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
                     onMouseEnter={() => setCategoriesOpen(true)}
                     onMouseLeave={() => setCategoriesOpen(false)}
                   >
-                    <span className={`text-[11px] font-bold text-spaced transition-colors duration-300 ${
+                    <span className={`text-[13px] font-bold text-spaced transition-colors duration-300 ${
                       isLightMode ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"
                     }`}>
                       {link.name}
@@ -121,7 +120,7 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
                             <Link 
                               key={sub.name} 
                               href={sub.href}
-                              className="group/item flex items-center justify-between px-8 py-4 text-[11px] font-bold text-black/70 hover:text-emerald-600 hover:bg-emerald-50/50 uppercase tracking-[0.12em] transition-all duration-300 whitespace-nowrap"
+                              className="group/item flex items-center justify-between px-8 py-4 text-[12px] font-bold text-black/70 hover:text-emerald-600 hover:bg-emerald-50/50 uppercase tracking-[0.12em] transition-all duration-300 whitespace-nowrap"
                             >
                               <span>{sub.name}</span>
                               <ChevronRight size={14} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-emerald-600" />
@@ -134,7 +133,7 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
                 ) : (
                   <Link
                     href={link.href}
-                    className={`text-[11px] font-bold text-spaced transition-colors duration-300 ${
+                    className={`text-[13px] font-bold text-spaced transition-colors duration-300 ${
                       isLightMode ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"
                     }`}
                   >
@@ -149,6 +148,14 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
             >
               <Search size={20} strokeWidth={1.5} />
             </button>
+            {!hideBookButton && (
+              <Link 
+                href="/book-appointment"
+                className="ml-6 px-6 py-2.5 bg-emerald-600 text-white text-[12px] font-bold uppercase tracking-[0.12em] hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Book Appointment
+              </Link>
+            )}
           </div>
 
           {/* Mobile Toggle */}
@@ -210,6 +217,15 @@ const Navbar = ({ solid = false }: { solid?: boolean }) => {
                 )}
               </div>
             ))}
+            {!hideBookButton && (
+              <Link
+                href="/book-appointment"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 px-8 py-4 bg-emerald-600 text-white text-sm font-bold uppercase tracking-[0.12em] hover:bg-emerald-700 transition-all duration-300 shadow-lg"
+              >
+                Book Appointment
+              </Link>
+            )}
           </div>
         </div>
       </div>

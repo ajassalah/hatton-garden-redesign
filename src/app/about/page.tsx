@@ -65,7 +65,7 @@ const AboutPage = () => {
       <section className="relative h-[65vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2000&auto=format&fit=crop"
+            src="/about1.webp"
             alt="Hatton Garden Heritage"
             fill
             className="object-cover brightness-50"
@@ -167,7 +167,7 @@ const AboutPage = () => {
             </div>
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1598209279122-8541213a03a7?q=80&w=800"
+                src="/abou2.webp"
                 alt="Workshop View"
                 fill
                 className="object-cover brightness-75 hover:scale-110 transition-transform duration-[3s]"
@@ -217,9 +217,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Team & Board Section */}
+      {/* Team & Board Section - Leadership and Board list hidden, Industry Legends shown */}
       <section className="py-32 bg-white border-t border-platinum">
         <div className="container mx-auto px-6 md:px-12">
+          {/* 
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-2xl">
               <p className="text-emerald-600 text-[11px] font-bold text-spaced mb-6 uppercase tracking-[0.4em]">Leadership</p>
@@ -290,6 +291,7 @@ const AboutPage = () => {
               ))}
             </div>
           </div>
+          */}
 
           <div className="bg-black text-white p-12 md:p-20 relative overflow-hidden">
              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-600/20 blur-[100px] rounded-full" />
