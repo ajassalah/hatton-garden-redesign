@@ -104,18 +104,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Socials */}
-              <div className="mt-16 pt-16 border-t border-platinum">
-                <h4 className="text-[10px] font-bold text-black/40 uppercase tracking-[0.3em] mb-8">Follow Our Story</h4>
-                <div className="flex space-x-6">
-                  {[Facebook, Instagram, Twitter].map((Icon, i) => (
-                    <a key={i} href="#" className="w-12 h-12 rounded-full border border-platinum flex items-center justify-center text-black/40 hover:bg-black hover:text-white hover:border-black transition-all">
-                      <Icon size={18} />
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Right Column: Form */}
