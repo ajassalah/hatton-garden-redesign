@@ -86,6 +86,7 @@ const JewellersPage = () => {
   const [modalType, setModalType] = useState<"phone" | "map" | null>(null);
   const [selectedJeweller, setSelectedJeweller] = useState<Jeweller | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(10);
 
   const openModal = (jeweller: Jeweller, type: "phone" | "map") => {
     setSelectedJeweller(jeweller);
@@ -121,10 +122,10 @@ const JewellersPage = () => {
         </div>
         
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center pt-20">
-          <div className="flex items-center justify-center space-x-2 text-white/60 text-[10px] text-spaced mb-6">
+          <div className="flex items-center justify-center space-x-2 text-white/60 text-xs md:text-sm text-spaced mb-6 font-bold">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
-            <ChevronRight size={10} />
-            <span className="text-white">OUR JEWELLERS</span>
+            <ChevronRight size={14} />
+            <span className="text-white uppercase">Our Jewellers</span>
           </div>
           
           <div className="max-w-3xl mx-auto">
@@ -186,121 +187,134 @@ const JewellersPage = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
           {filteredJewellers.length > 0 ? (
-            viewMode === "grid" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                {filteredJewellers.map((jeweller, index) => (
-                  <div key={index} className="group bg-white rounded-sm overflow-hidden border border-platinum/50 shadow-sm hover:shadow-xl transition-all duration-500">
-                    <Link href={`/jewellers/${jeweller.slug}`} className="block relative h-64 w-full overflow-hidden">
-                      <Image
-                        src={jeweller.image}
-                        alt={jeweller.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute top-4 left-4 bg-black px-3 py-1 text-[9px] text-spaced font-bold text-white border border-white/10 uppercase">
-                        {jeweller.category}
-                      </div>
-                      <div className="absolute top-4 right-4 bg-black/80 text-white px-2 py-1 text-[10px] flex items-center space-x-1 backdrop-blur-sm">
-                        <span>★</span>
-                        <span>{jeweller.rating}</span>
-                      </div>
-                    </Link>
-                    
-                    <div className="p-8">
-                      <Link href={`/jewellers/${jeweller.slug}`}>
-                        <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-black/70 transition-colors uppercase tracking-tight">{jeweller.name}</h3>
+            <div className="flex flex-col items-center">
+              {viewMode === "grid" ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 w-full">
+                  {filteredJewellers.slice(0, visibleCount).map((jeweller, index) => (
+                    <div key={index} className="group bg-white rounded-sm overflow-hidden border border-platinum/50 shadow-sm hover:shadow-xl transition-all duration-500">
+                      <Link href={`/jewellers/${jeweller.slug}`} className="block relative h-64 w-full overflow-hidden">
+                        <Image
+                          src={jeweller.image}
+                          alt={jeweller.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute top-4 left-4 bg-black px-3 py-1 text-[9px] text-spaced font-bold text-white border border-white/10 uppercase">
+                          {jeweller.category}
+                        </div>
+                        <div className="absolute top-4 right-4 bg-black/80 text-white px-2 py-1 text-[10px] flex items-center space-x-1 backdrop-blur-sm">
+                          <span>★</span>
+                          <span>{jeweller.rating}</span>
+                        </div>
                       </Link>
-                      <p className="text-black/60 font-light text-sm line-clamp-2 min-h-[2.5rem] mb-6 leading-relaxed">
-                        {jeweller.description}
-                      </p>
                       
-                      <div className="pt-6 border-t border-platinum flex items-center justify-between">
-                        <Link href={`/jewellers/${jeweller.slug}`} className="flex items-center space-x-2 text-[11px] text-spaced font-bold text-black border-b border-black pb-1 hover:opacity-100 transition-opacity opacity-70">
-                            DETAILS
+                      <div className="p-8">
+                        <Link href={`/jewellers/${jeweller.slug}`}>
+                          <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-black/70 transition-colors uppercase tracking-tight">{jeweller.name}</h3>
                         </Link>
-                        <div className="flex items-center space-x-3">
+                        <p className="text-black/60 font-light text-sm line-clamp-2 min-h-[2.5rem] mb-6 leading-relaxed">
+                          {jeweller.description}
+                        </p>
+                        
+                        <div className="pt-6 border-t border-platinum flex items-center justify-between">
+                          <Link href={`/jewellers/${jeweller.slug}`} className="flex items-center space-x-2 text-[11px] text-spaced font-bold text-black border-b border-black pb-1 hover:opacity-100 transition-opacity opacity-70">
+                              DETAILS
+                          </Link>
+                          <div className="flex items-center space-x-3">
+                              <button 
+                                onClick={() => openModal(jeweller, "phone")}
+                                className="p-2 bg-platinum/30 rounded-full hover:bg-black hover:text-white transition-all duration-300" 
+                                title="Call"
+                              >
+                                  <Phone size={14} />
+                              </button>
+                              <button 
+                                onClick={() => openModal(jeweller, "map")}
+                                className="p-2 bg-platinum/30 rounded-full hover:bg-black hover:text-white transition-all duration-300" 
+                                title="Location"
+                              >
+                                  <Navigation size={14} />
+                              </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-6 w-full">
+                  {filteredJewellers.slice(0, visibleCount).map((jeweller, index) => (
+                    <div key={index} className="group bg-white rounded-sm overflow-hidden border border-platinum/50 flex flex-col md:flex-row hover:shadow-lg transition-all duration-500">
+                      <Link href={`/jewellers/${jeweller.slug}`} className="relative h-64 md:h-auto md:w-80 shrink-0 overflow-hidden">
+                        <Image
+                          src={jeweller.image}
+                          alt={jeweller.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 text-[9px] text-spaced font-bold text-black border border-platinum uppercase">
+                          {jeweller.category}
+                        </div>
+                      </Link>
+                      
+                      <div className="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-4">
+                            <Link href={`/jewellers/${jeweller.slug}`}>
+                              <h3 className="text-2xl font-light text-black group-hover:text-black/70 transition-colors uppercase tracking-tight">{jeweller.name}</h3>
+                            </Link>
+                            <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-100 flex items-center space-x-1">
+                              <span>★</span>
+                              <span>{jeweller.rating}</span>
+                            </div>
+                          </div>
+                          <p className="text-black/60 font-light text-sm mb-6 leading-relaxed max-w-3xl">
+                            {jeweller.description}
+                          </p>
+                          <div className="flex flex-wrap gap-6 text-[11px] text-black/50 mb-6 font-medium">
                             <button 
                               onClick={() => openModal(jeweller, "phone")}
-                              className="p-2 bg-platinum/30 rounded-full hover:bg-black hover:text-white transition-all duration-300" 
-                              title="Call"
+                              className="flex items-center space-x-2 hover:text-black transition-colors"
                             >
-                                <Phone size={14} />
+                               <Phone size={14} />
+                               <span>{jeweller.phone}</span>
                             </button>
                             <button 
                               onClick={() => openModal(jeweller, "map")}
-                              className="p-2 bg-platinum/30 rounded-full hover:bg-black hover:text-white transition-all duration-300" 
-                              title="Location"
+                              className="flex items-center space-x-2 hover:text-black transition-colors"
                             >
-                                <Navigation size={14} />
+                               <Navigation size={14} />
+                               <span>{jeweller.address.split(',')[1] || jeweller.address}</span>
                             </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-6">
-                {filteredJewellers.map((jeweller, index) => (
-                  <div key={index} className="group bg-white rounded-sm overflow-hidden border border-platinum/50 flex flex-col md:flex-row hover:shadow-lg transition-all duration-500">
-                    <Link href={`/jewellers/${jeweller.slug}`} className="relative h-64 md:h-auto md:w-80 shrink-0 overflow-hidden">
-                      <Image
-                        src={jeweller.image}
-                        alt={jeweller.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 text-[9px] text-spaced font-bold text-black border border-platinum uppercase">
-                        {jeweller.category}
-                      </div>
-                    </Link>
-                    
-                    <div className="p-8 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex justify-between items-start mb-4">
-                          <Link href={`/jewellers/${jeweller.slug}`}>
-                            <h3 className="text-2xl font-light text-black group-hover:text-black/70 transition-colors uppercase tracking-tight">{jeweller.name}</h3>
-                          </Link>
-                          <div className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-100 flex items-center space-x-1">
-                            <span>★</span>
-                            <span>{jeweller.rating}</span>
                           </div>
                         </div>
-                        <p className="text-black/60 font-light text-sm mb-6 leading-relaxed max-w-3xl">
-                          {jeweller.description}
-                        </p>
-                        <div className="flex flex-wrap gap-6 text-[11px] text-black/50 mb-6 font-medium">
-                          <button 
-                            onClick={() => openModal(jeweller, "phone")}
-                            className="flex items-center space-x-2 hover:text-black transition-colors"
-                          >
-                             <Phone size={14} />
-                             <span>{jeweller.phone}</span>
-                          </button>
-                          <button 
-                            onClick={() => openModal(jeweller, "map")}
-                            className="flex items-center space-x-2 hover:text-black transition-colors"
-                          >
-                             <Navigation size={14} />
-                             <span>{jeweller.address.split(',')[1] || jeweller.address}</span>
-                          </button>
-                        </div>
-                      </div>
-                      
-                      <div className="pt-6 border-t border-platinum flex items-center justify-between">
-                        <Link href={`/jewellers/${jeweller.slug}`} className="flex items-center space-x-2 text-[11px] text-spaced font-bold text-black border-b border-black pb-1 hover:opacity-100 transition-opacity opacity-70">
-                            VIEW PROFILE
-                        </Link>
-                        <div className="flex items-center space-x-4">
-                           <a href={jeweller.website} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-black/40 hover:text-black transition-colors uppercase tracking-widest border-r border-platinum pr-4">Website</a>
-                           <a href={`mailto:${jeweller.email}`} className="text-[10px] font-bold text-black/40 hover:text-black transition-colors uppercase tracking-widest">Email</a>
+                        
+                        <div className="pt-6 border-t border-platinum flex items-center justify-between">
+                          <Link href={`/jewellers/${jeweller.slug}`} className="flex items-center space-x-2 text-[11px] text-spaced font-bold text-black border-b border-black pb-1 hover:opacity-100 transition-opacity opacity-70">
+                              VIEW PROFILE
+                          </Link>
+                          <div className="flex items-center space-x-4">
+                             <a href={jeweller.website} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-black/40 hover:text-black transition-colors uppercase tracking-widest border-r border-platinum pr-4">Website</a>
+                             <a href={`mailto:${jeweller.email}`} className="text-[10px] font-bold text-black/40 hover:text-black transition-colors uppercase tracking-widest">Email</a>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )
+                  ))}
+                </div>
+              )}
+
+              {visibleCount < filteredJewellers.length && (
+                <div className="mt-20 text-center">
+                  <button 
+                    onClick={() => setVisibleCount(prev => prev + 10)}
+                    className="px-12 py-4 bg-black text-white text-[11px] font-bold tracking-[0.3em] hover:bg-black/90 transition-all uppercase shadow-xl"
+                  >
+                    Load More Jewellers
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
             <div className="py-32 text-center border-2 border-dashed border-platinum rounded-sm">
               <h3 className="text-2xl font-light text-black/40 uppercase tracking-widest mb-4">No Jewellers Found</h3>

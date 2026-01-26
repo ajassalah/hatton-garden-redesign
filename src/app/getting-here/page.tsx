@@ -44,9 +44,9 @@ const GettingHerePage = () => {
           />
         </div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 text-center pt-20">
-          <div className="flex items-center justify-center space-x-2 text-white/60 text-[10px] text-spaced mb-6">
+          <div className="flex items-center justify-center space-x-2 text-white/60 text-xs md:text-sm text-spaced mb-6 font-bold">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
-            <ChevronRight size={10} />
+            <ChevronRight size={14} />
             <span className="text-white">GETTING HERE</span>
           </div>
           <h1 className="text-5xl md:text-7xl text-white font-light tracking-tight mb-8 leading-[1.1]">

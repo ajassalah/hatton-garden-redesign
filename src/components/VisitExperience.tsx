@@ -58,7 +58,7 @@ const VisitExperience = () => {
           <ExperienceCard 
             title="Heritage & Travel" 
             subtitle="Visit" 
-            image="/hero.png" 
+            image="/about-heritage.png" 
             large
             href="/getting-here"
           />

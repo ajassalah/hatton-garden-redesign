@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Facebook, MapPin, Clock } from "lucide-react";
+import { Instagram, Facebook, MapPin, Clock, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -77,11 +77,18 @@ const Footer = () => {
               </div>
              
               <div className="flex items-start pt-4">
-                <Clock className="mr-3 w-4 h-4 shrink-0" />
+                <Clock className="mr-3 w-4 h-4 shrink-0 mt-0.5" />
                 <span>
                   Monday — Saturday<br />
                   10:00 AM — 6:00 PM
                 </span>
+              </div>
+
+              <div className="flex items-center pt-4">
+                <Phone className="mr-3 w-4 h-4 shrink-0" />
+                <a href="tel:+447566756499" className="hover:opacity-70 transition-opacity">
+                  +44 7566 7564 99
+                </a>
               </div>
             </div>
           </div>
