@@ -1,0 +1,17 @@
+[
+  { "id": "1", "name": "Diamonds", "type": "jeweller" },
+  { "id": "2", "name": "Bespoke", "type": "jeweller" },
+  { "id": "3", "name": "Fine Jewellery", "type": "jeweller" },
+  { "id": "4", "name": "Ethical", "type": "jeweller" },
+  { "id": "5", "name": "Traditional", "type": "jeweller" },
+  { "id": "6", "name": "Café", "type": "cafe" },
+  { "id": "7", "name": "Pub", "type": "cafe" },
+  { "id": "8", "name": "Restaurant", "type": "cafe" },
+  { "id": "9", "name": "Bistro", "type": "cafe" },
+  { "id": "10", "name": "Wine Bar", "type": "cafe" },
+  { "id": "11", "name": "Jewelry", "type": "blog" },
+  { "id": "12", "name": "Lifestyle", "type": "blog" },
+  { "id": "13", "name": "Dining", "type": "blog" },
+  { "id": "14", "name": "Events", "type": "blog" },
+  { "id": "15", "name": "Guides", "type": "blog" }
+]

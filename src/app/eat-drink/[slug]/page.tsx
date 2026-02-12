@@ -26,14 +26,34 @@ import {
   ArrowRight,
   Navigation
 } from "lucide-react";
-import { cafes } from "@/data/cafes";
+import { useEffect, useState } from "react";
+import type { Cafe } from "@/data/cafes";
+import { Loader2 } from "lucide-react";
 
 const CafeDetailPage = () => {
   const params = useParams();
   const slug = params.slug;
-  const cafe = cafes.find((c) => c.slug === slug);
+  const [cafe, setCafe] = useState<Cafe | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const [activeTestimonialIndex, setActiveTestimonialIndex] = React.useState(0);
+  useEffect(() => {
+    async function fetchCafe() {
+      try {
+        const response = await fetch(`/api/admin/cafes/${slug}`);
+        const result = await response.json();
+        if (result.success) {
+          setCafe(result.data);
+        }
+      } catch (error) {
+        console.error("Error fetching cafe details:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (slug) fetchCafe();
+  }, [slug]);
+
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
   const testimonials = [
     {
       text: "The food was exceptional and the service was top-notch. Such a hidden gem in Hatton Garden. Highly recommend for a business lunch or a relaxed dinner.",
@@ -68,6 +88,14 @@ const CafeDetailPage = () => {
   const prevTestimonial = () => {
     setActiveTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <Loader2 className="w-12 h-12 text-black animate-spin" />
+      </div>
+    );
+  }
 
   if (!cafe) {
     return notFound();

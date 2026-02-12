@@ -2,9 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { jewellers as allJewellers } from "@/data/jewellers";
+import { ArrowRight, Loader2 } from "lucide-react";
+import type { Jeweller } from "@/data/jewellers";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface JewellerCardProps {
   name: string;
@@ -34,8 +35,25 @@ const JewellerCard = ({ name, category, image, slug, className = "" }: JewellerC
 );
 
 const JewellersGrid = () => {
-  // Take the first 4 jewellers for the homepage grid
-  const displayJewellers = allJewellers.slice(0, 4);
+  const [jewellers, setJewellers] = useState<Jeweller[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchJewellers() {
+      try {
+        const response = await fetch('/api/admin/jewellers');
+        const result = await response.json();
+        if (result.success) {
+          setJewellers(result.data.slice(0, 4));
+        }
+      } catch (error) {
+        console.error("Error fetching jewellers for homepage:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchJewellers();
+  }, []);
 
   return (
     <section id="jewellers" className="section-padding bg-[#fafafa]">
@@ -52,15 +70,22 @@ const JewellersGrid = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {displayJewellers.map((item, index) => (
-            <JewellerCard 
-              key={index} 
-              {...item} 
-              className={`animate-fade-in [animation-delay:${index * 100}ms]`}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-12 h-12 text-black animate-spin mb-4" />
+            <p className="text-black/40 text-[10px] font-bold tracking-widest uppercase">Curating Collections...</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {jewellers.map((item, index) => (
+              <JewellerCard 
+                key={index} 
+                {...item} 
+                className={`animate-fade-in [animation-delay:${index * 100}ms]`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <style jsx>{`

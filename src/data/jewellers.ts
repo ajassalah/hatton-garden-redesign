@@ -17,6 +17,7 @@ export interface Jeweller {
     instagram?: string;
   };
   longDescription: string;
+  gallery?: string[];
 }
 
 export const jewellers: Jeweller[] = [

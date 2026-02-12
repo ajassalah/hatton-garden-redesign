@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "email": "admin@hattongarden.com",
+    "role": "Super Admin",
+    "status": "Active",
+    "lastLogin": "2026-02-12",
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "2",
+    "username": "editor",
+    "email": "editor@hattongarden.com",
+    "role": "Editor",
+    "status": "Active",
+    "lastLogin": "2026-02-12",
+    "createdAt": "2024-01-15"
+  }
+]

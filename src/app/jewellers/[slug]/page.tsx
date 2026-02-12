@@ -27,7 +27,9 @@ import {
   ArrowLeft,
   ArrowRight
 } from "lucide-react";
-import { jewellers } from "@/data/jewellers";
+import { useEffect, useState } from "react";
+import type { Jeweller } from "@/data/jewellers";
+import { Loader2 } from "lucide-react";
 
 const TestimonialModal = ({ 
   isOpen, 
@@ -231,11 +233,29 @@ const TestimonialModal = ({
 const JewellerDetailPage = () => {
   const params = useParams();
   const slug = params.slug;
-  const jeweller = jewellers.find((j) => j.slug === slug);
+  const [jeweller, setJeweller] = useState<Jeweller | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const [isTestimonialModalOpen, setIsTestimonialModalOpen] = React.useState(false);
-  const [activeTestimonialIndex, setActiveTestimonialIndex] = React.useState(0);
-  const [localTestimonials, setLocalTestimonials] = React.useState([
+  useEffect(() => {
+    async function fetchJeweller() {
+      try {
+        const response = await fetch(`/api/admin/jewellers/${slug}`);
+        const result = await response.json();
+        if (result.success) {
+          setJeweller(result.data);
+        }
+      } catch (error) {
+        console.error("Error fetching jeweller details:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (slug) fetchJeweller();
+  }, [slug]);
+
+  const [isTestimonialModalOpen, setIsTestimonialModalOpen] = useState(false);
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  const [localTestimonials, setLocalTestimonials] = useState([
     {
       text: "Overall pleasurable experience. The bespoke service was beyond our expectations. They took the time to understand exactly what we wanted for our wedding bands, which made me feel very confident and comfortable. Seamless and easy process.",
       author: "Sarah Johnston",
@@ -296,6 +316,14 @@ const JewellerDetailPage = () => {
     setActiveTestimonialIndex(0);
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <Loader2 className="w-12 h-12 text-black animate-spin" />
+      </div>
+    );
+  }
+
   if (!jeweller) {
     return notFound();
   }
@@ -321,7 +349,7 @@ const JewellerDetailPage = () => {
                   src={jeweller.image}
                   alt={jeweller.name}
                   fill
-                  className="object-cover"
+                  className="object-contain p-4"
                 />
             </div>
             
@@ -417,17 +445,31 @@ const JewellerDetailPage = () => {
         <div className="container mx-auto px-6 md:px-12">
             <h2 className="text-spaced text-[11px] font-bold text-black/40 mb-12 border-b border-platinum pb-4 uppercase tracking-[0.2em]">Our Gallery</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                {[1, 2, 3, 4].map((i) => (
+                {(jeweller.gallery && jeweller.gallery.length > 0) ? (
+                  jeweller.gallery.map((img, i) => (
                     <div key={i} className="relative aspect-[4/5] overflow-hidden group shadow-sm bg-platinum/20">
                         <Image
-                            src={jeweller.image}
-                            alt={`${jeweller.name} gallery ${i}`}
+                            src={img}
+                            alt={`${jeweller.name} gallery ${i + 1}`}
                             fill
                             className="object-cover hover:scale-110 transition-transform duration-[1.5s] brightness-95 group-hover:brightness-100"
                         />
                         <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                     </div>
-                ))}
+                  ))
+                ) : (
+                  [1, 2, 3, 4].map((i) => (
+                    <div key={i} className="relative aspect-[4/5] overflow-hidden group shadow-sm bg-platinum/20">
+                        <Image
+                            src={jeweller.image}
+                            alt={`${jeweller.name} placeholder gallery ${i}`}
+                            fill
+                            className="object-cover hover:scale-110 transition-transform duration-[1.5s] brightness-95 group-hover:brightness-100 opacity-20"
+                        />
+                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
+                    </div>
+                  ))
+                )}
             </div>
         </div>
       </section>

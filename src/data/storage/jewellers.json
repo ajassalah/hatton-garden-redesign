@@ -1,0 +1,1417 @@
+[
+  {
+    "slug": "queensmith-master-jewellers",
+    "name": "Queensmith",
+    "category": "Retail / Master Jewellers",
+    "description": "Award-winning jewellers specializing in handcrafted engagement rings and wedding bands.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@queensmith.co.uk",
+    "website": "https://www.queensmith.co.uk",
+    "address": "98 Hatton Garden, London EC1N 8NX",
+    "rating": 5,
+    "reviewsCount": 1200,
+    "openingTimes": "Monday to Sunday 10am - 6pm",
+    "image": "/jewellers/queensmith.jpg",
+    "socials": {
+      "twitter": "#",
+      "facebook": "#",
+      "instagram": "#"
+    },
+    "longDescription": "Queensmith is a multi-award winning master jeweller based in the heart of Hatton Garden. We specialize in GIA certified diamonds."
+  },
+  {
+    "slug": "regal-hatton-garden-jewellers",
+    "name": "Regal",
+    "category": "Retail / Jewellers",
+    "description": "One of the leading jewellers celebrated for their bespoke designs and exceptional diamond quality.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@regaljewellers.london",
+    "website": "https://regaljewellers.london",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 156,
+    "openingTimes": "Monday to Sunday 10am - 6pm",
+    "image": "/jewellers/regal.jpg",
+    "socials": {
+      "facebook": "#",
+      "instagram": "#"
+    },
+    "longDescription": "Regal Jewellers stands as a beacon of luxury in the heart of London's diamond district."
+  },
+  {
+    "slug": "mouza-fine-jewellery",
+    "name": "MOUZA Fine Jewellery",
+    "category": "Retail / Diamonds",
+    "description": "Creates handmade diamond engagement rings and high-end pieces defined by elegance and sophistication.",
+    "phone": "+44 7566 7564 99",
+    "email": "contact@mouza.co.uk",
+    "website": "https://mouza.co.uk",
+    "address": "Ground Floor, 34-35 Hatton Garden, London EC1N 8DX",
+    "rating": 4.9,
+    "reviewsCount": 89,
+    "openingTimes": "Monday to Saturday 10:30am - 5:30pm",
+    "image": "/jewellers/mouza.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "MOUZA is synonymous with elegance. Each piece in our collection is handmade by master artisans."
+  },
+  {
+    "slug": "max-diamonds",
+    "name": "Max Diamonds Ltd",
+    "category": "Retail / Diamonds",
+    "description": "Specialists in fine diamonds, engagement rings and bespoke wedding bands.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@maxdiamonds.com",
+    "website": "https://maxdiamonds.com",
+    "address": "33 Hatton Garden, London EC1N 8DH",
+    "rating": 4.7,
+    "reviewsCount": 124,
+    "openingTimes": "Monday to Saturday 10am - 5:30pm",
+    "image": "/jewellers/max diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Max Diamonds is dedicated to providing high-quality stones and exceptional service."
+  },
+  {
+    "slug": "anais-rose",
+    "name": "Anais Rose",
+    "category": "Retail / Bespoke",
+    "description": "Engagement rings and fine jewellery designed with a personal touch.",
+    "phone": "+44 7566 7564 99",
+    "email": "hello@anaisrose.com",
+    "website": "https://anaisrose.com",
+    "address": "Unit 1, 19-21 Hatton Garden, London EC1N 8BA",
+    "rating": 4.8,
+    "reviewsCount": 92,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/anais rose.jpg",
+    "socials": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "longDescription": "Anais Rose offers a unique and personal approach to jewellery design."
+  },
+  {
+    "slug": "blackacre",
+    "name": "Blackacre",
+    "category": "Retail / Bespoke",
+    "description": "Award-winning B Corp certified jeweller focusing on ethically sourced diamonds.",
+    "phone": "+44 7566 7564 99",
+    "email": "studio@blackacre.london",
+    "website": "https://blackacre.london",
+    "address": "St Cross St, London EC1N 8UB",
+    "rating": 5,
+    "reviewsCount": 210,
+    "openingTimes": "By Appointment Only",
+    "image": "/jewellers/blackacre.jpg",
+    "socials": {
+      "twitter": "#",
+      "facebook": "#",
+      "instagram": "#"
+    },
+    "longDescription": "Blackacre is an award-winning B Corp™ certified jeweller focused on ethics."
+  },
+  {
+    "slug": "hearts-of-london",
+    "name": "Hearts of London",
+    "category": "Retail / Bespoke",
+    "description": "Expertise in bespoke jewellery and diamond sourcing, where tradition meets tech.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@heartsoflondon.co.uk",
+    "website": "https://heartsoflondon.co.uk",
+    "address": "Suite 11-12, 100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 420,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/hearts of london.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Hearts of London combines traditional bench-work with cutting-edge 3D design."
+  },
+  {
+    "slug": "ivy-jewellers",
+    "name": "Ivy Jewellers",
+    "category": "Retail / Family Business",
+    "description": "A family-run business offering a personal approach to fine jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "hello@ivyjwellers.com",
+    "website": "https://ivyjewellers.com",
+    "address": "24 Hatton Garden, London EC1N 8AJ",
+    "rating": 4.7,
+    "reviewsCount": 65,
+    "openingTimes": "Monday to Friday 10am - 5:30pm",
+    "image": "/jewellers/ivy jewellers.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "With over three generations of experience, Ivy Jewellers is built on trust."
+  },
+  {
+    "slug": "jade-jewellers",
+    "name": "Jade Jewellers",
+    "category": "Retail / Diamonds",
+    "description": "Expert diamond dealers and designers offering a wide range of luxury pieces.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@jadejewellers.com",
+    "website": "https://jadejewellers.com",
+    "address": "32 Hatton Garden, London EC1N 8DH",
+    "rating": 4.8,
+    "reviewsCount": 95,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/jade jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Jade Jewellers combines a passion for stones with modern design."
+  },
+  {
+    "slug": "beverley-hills-london",
+    "name": "Beverley Hills London",
+    "category": "Retail / Luxury",
+    "description": "Bespoke diamond jewellery and luxury watch specialists.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@beverleyhillsjewellers.co.uk",
+    "website": "https://beverleyhillsjewellers.co.uk",
+    "address": "10-12 Hatton Garden, London EC1N 8AH",
+    "rating": 4.6,
+    "reviewsCount": 210,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/beverley hill london.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Beverley Hills London is synonymous with opulence."
+  },
+  {
+    "slug": "london-rocks-jewellers",
+    "name": "London Rocks Jewellers",
+    "category": "Retail / Boutique",
+    "description": "Known for unique, workshop-led designs and creative pieces.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@londonrocksjewellery.com",
+    "website": "https://londonrocksjewellery.com",
+    "address": "97 Hatton Garden, London EC1N 8NX",
+    "rating": 4.8,
+    "reviewsCount": 112,
+    "openingTimes": "Monday to Saturday 10am - 5:30pm",
+    "image": "/jewellers/london rocks Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "London Rocks is a boutique jeweller that prides itself on being workshop-led."
+  },
+  {
+    "slug": "holts-gems",
+    "name": "Holts Gems",
+    "category": "Retail / Gemstones",
+    "description": "Lapidary artists and gemstone specialists since 1948.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@holtsgems.co.uk",
+    "website": "https://holtsgems.co.uk",
+    "address": "98 Hatton Garden, London EC1N 8NX",
+    "rating": 4.6,
+    "reviewsCount": 145,
+    "openingTimes": "Monday to Saturday 10am - 5pm",
+    "image": "/jewellers/holts gems.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "With over 70 years of history, Holts Gems is a cornerstone of Hatton Garden."
+  },
+  {
+    "slug": "zuzana-jewellery",
+    "name": "Zuzana Jewellery",
+    "category": "Retail / Handcrafted",
+    "description": "Focuses on handcrafted, contemporary jewellery designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@zuzanajewellery.com",
+    "website": "https://zuzanajewellery.com",
+    "address": "7 Hatton Garden, London EC1N 8AD",
+    "rating": 4.9,
+    "reviewsCount": 54,
+    "openingTimes": "Tuesday to Saturday 11am - 6pm",
+    "image": "/jewellers/zuzana Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Zuzana Jewellery offers a fresh perspective on fine jewellery."
+  },
+  {
+    "slug": "buy-fine-diamonds",
+    "name": "Buy Fine Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Specializes in high-quality diamonds and competitive pricing.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@buyfinediamonds.com",
+    "website": "https://buyfinediamonds.com",
+    "address": "22-23 Hatton Garden, London EC1N 8AT",
+    "rating": 4.6,
+    "reviewsCount": 230,
+    "openingTimes": "Monday to Friday 9:30am - 5:30pm",
+    "image": "/jewellers/buy fine diamonds.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Buy Fine Diamonds is one of the most trusted diamond wholesalers."
+  },
+  {
+    "slug": "lebrusan-studio",
+    "name": "Lebrusan Studio",
+    "category": "Retail / Ethical",
+    "description": "A leader in ethically sourced and fairtrade gold jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "hello@lebrusanstudio.com",
+    "website": "https://lebrusanstudio.com",
+    "address": "63-66 Hatton Garden, London EC1N 8LE",
+    "rating": 5,
+    "reviewsCount": 88,
+    "openingTimes": "By Appointment Only",
+    "image": "/jewellers/lebrusan studio.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Lebrusan Studio is dedicated to beauty that doesn't cost the earth."
+  },
+  {
+    "slug": "star-jewellers",
+    "name": "Star Jewellers",
+    "category": "Retail / Fine Jewellery",
+    "description": "A sparkling collection of diamond and gemstone jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@starjewellers.com",
+    "website": "https://starjewellers.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.7,
+    "reviewsCount": 110,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/star Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Star Jewellers offers a wide variety of pieces that capture the light and the heart."
+  },
+  {
+    "slug": "arlington-co",
+    "name": "Arlington & Co",
+    "category": "Retail / Traditional",
+    "description": "Classic Hatton Garden jeweller with a focus on traditional craftsmanship.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@arlingtonandco.com",
+    "website": "https://arlingtonandco.com",
+    "address": "Suite 112, 100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.7,
+    "reviewsCount": 142,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/arlington & Co.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Arlington & Co has been a staple of the community for decades."
+  },
+  {
+    "slug": "kd-fine-jewellery",
+    "name": "KD Fine Jewellery",
+    "category": "Retail / Bespoke",
+    "description": "Specialists in bespoke engagement rings and repair services.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@kdfinejewellery.com",
+    "website": "https://kdfinejewellery.com",
+    "address": "Hatton Garden, London EC1N 8BA",
+    "rating": 4.8,
+    "reviewsCount": 62,
+    "openingTimes": "Monday to Saturday 10am - 5:30pm",
+    "image": "/jewellers/KD Fine Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "KD Fine Jewellery provides expert services in the heart of the diamond district."
+  },
+  {
+    "slug": "rennie-co",
+    "name": "Rennie & Co",
+    "category": "Retail / Fine Jewellery",
+    "description": "A heritage of excellence in design and craftsmanship.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@rennieco.com",
+    "website": "https://rennieco.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 195,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/Rennie & CO.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Rennie & Co is known for their exquisite collections and timeless design."
+  },
+  {
+    "slug": "dazzle-diamonds-london",
+    "name": "Dazzle Diamonds London",
+    "category": "Retail / Diamonds",
+    "description": "Creating dazzling diamond pieces for your special moments.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@dazzlediamonds.london",
+    "website": "https://dazzlediamonds.london",
+    "address": "Hatton Garden, London EC1N 8BA",
+    "rating": 4.7,
+    "reviewsCount": 74,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/dazzle diamonds london.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Dazzle Diamonds specializes in making every commission a masterpiece."
+  },
+  {
+    "slug": "abrahams",
+    "name": "Abrahams",
+    "category": "Retail / Traditional",
+    "description": "Respected traditional jewellers with a long history in Hatton Garden.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@abrahamsjewellers.com",
+    "website": "https://abrahamsjewellers.com",
+    "address": "100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.8,
+    "reviewsCount": 130,
+    "openingTimes": "Monday to Saturday 10am - 5pm",
+    "image": "/jewellers/Abrahams.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Abrahams offers reliable service and a curated selection of classic pieces."
+  },
+  {
+    "slug": "rps-diamonds",
+    "name": "RPS Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Expert diamond sourcing and high-quality settings.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@rpsdiamonds.com",
+    "website": "https://rpsdiamonds.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.6,
+    "reviewsCount": 168,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/RPS Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "RPS Diamonds focuses on providing the best stones for your bespoke needs."
+  },
+  {
+    "slug": "madison",
+    "name": "Madison",
+    "category": "Retail / Luxury",
+    "description": "Sophisticated jewellery and luxury watch showroom.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@madisonlondon.com",
+    "website": "https://madisonlondon.com",
+    "address": "Hatton Garden, London EC1N 8AH",
+    "rating": 4.7,
+    "reviewsCount": 89,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/madison.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Madison brings a touch of modern luxury to the traditional Hatton Garden scene."
+  },
+  {
+    "slug": "eric-ross",
+    "name": "Eric Ross",
+    "category": "Retail / Bespoke",
+    "description": "Crafting beautiful bespoke jewellery since the mid-20th century.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@ericross.com",
+    "website": "https://ericross.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 52,
+    "openingTimes": "Monday to Saturday 10am - 5:30pm",
+    "image": "/jewellers/Eric Ross.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Eric Ross is legendary for his attention to detail and artistic flair."
+  },
+  {
+    "slug": "diamond-heaven",
+    "name": "Diamond Heaven",
+    "category": "Retail / Diamonds",
+    "description": "Luxury diamond jewellery at affordable prices.",
+    "phone": "+44 7566 7564 99",
+    "email": "london@diamond-heaven.co.uk",
+    "website": "https://diamond-heaven.co.uk",
+    "address": "14-16 Greville St, London EC1N 8SQ",
+    "rating": 4.7,
+    "reviewsCount": 850,
+    "openingTimes": "Monday to Sunday 10am - 6pm",
+    "image": "/jewellers/Diamond Heaven.jpg",
+    "socials": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "longDescription": "Diamond Heaven offers a wide variety of stones and settings."
+  },
+  {
+    "slug": "eternity-jewels",
+    "name": "Eternity Jewels",
+    "category": "Retail / Diamonds",
+    "description": "Focused on eternal quality and timeless diamond designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@eternityjewels.com",
+    "website": "https://eternityjewels.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 76,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/Eternity Jewels.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Eternity Jewels helps you find the perfect symbol of lasting love."
+  },
+  {
+    "slug": "daniel-christopher-fine-jewellery",
+    "name": "Daniel Christopher",
+    "category": "Retail / Bespoke",
+    "description": "Personalized bespoke design experience on Greville Street.",
+    "phone": "+44 7566 7564 99",
+    "email": "service@dcjewellery.com",
+    "website": "https://dcjewellery.com",
+    "address": "16 Greville St, London EC1N 8SQ",
+    "rating": 4.9,
+    "reviewsCount": 310,
+    "openingTimes": "Monday to Saturday 9am - 6pm",
+    "image": "/jewellers/Daniel Christopher Fine Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Daniel Christopher offers a modern and inviting showroom experience."
+  },
+  {
+    "slug": "diamond-doves",
+    "name": "Diamond Doves",
+    "category": "Retail / Diamonds",
+    "description": "Symbolizing peace and luxury with high-end diamond creations.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@diamonddoves.com",
+    "website": "https://diamonddoves.com",
+    "address": "Hatton Garden, London EC1N 8BA",
+    "rating": 4.7,
+    "reviewsCount": 45,
+    "openingTimes": "Monday to Saturday 10am - 5:30pm",
+    "image": "/jewellers/Diamond Doves.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Diamond Doves is a boutique focused on purity of design."
+  },
+  {
+    "slug": "harmony-jewels",
+    "name": "Harmony Jewels",
+    "category": "Retail / Bespoke",
+    "description": "Harmonizing tradition and modernity in every piece.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@harmonyjewels.com",
+    "website": "https://harmonyjewels.com",
+    "address": "Hatton Garden, London EC1N 8BA",
+    "rating": 4.8,
+    "reviewsCount": 115,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/Harmony jewels.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Harmony Jewels creates beautifully balanced fine jewellery."
+  },
+  {
+    "slug": "house-of-hatton",
+    "name": "House of Hatton",
+    "category": "Retail / Traditional",
+    "description": "Classic designs and a large collection of diamond rings.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@houseofhatton.com",
+    "website": "https://houseofhatton.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.6,
+    "reviewsCount": 93,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/House of Hatton.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "House of Hatton represents the traditional heart of the district."
+  },
+  {
+    "slug": "hamilton-jewellers",
+    "name": "Hamilton Jewellers",
+    "category": "Retail / Fine Jewellery",
+    "description": "Elegant collections for the discerning London client.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@hamiltonjewellers.com",
+    "website": "https://hamiltonjewellers.com",
+    "address": "Hatton Garden, London EC1N 8BA",
+    "rating": 4.7,
+    "reviewsCount": 58,
+    "openingTimes": "Monday to Saturday 10am - 6pm",
+    "image": "/jewellers/Hamilton Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Hamilton Jewellers offers refined pieces that exude London style."
+  },
+  {
+    "slug": "hatton-jewels",
+    "name": "Hatton Jewels",
+    "category": "Retail / Diamonds",
+    "description": "Highly reputable Hatton Garden jeweller specializing in diamonds and bespoke jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@hattonjewels.com",
+    "website": "https://www.hattonjewels.com",
+    "address": "Suite 4, 88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 156,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Hatton jewels.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Hatton Jewels is a leading name in the diamond district, known for exceptional service and a stunning collection of diamond engagement rings."
+  },
+  {
+    "slug": "alexis-jewels",
+    "name": "Alexis Jewels",
+    "category": "Retail / Fine Jewellery",
+    "description": "Elegant diamond and gemstone jewellery, focusing on quality and unique designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@alexisjewels.com",
+    "website": "https://www.alexisjewels.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 42,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Alexis Jewels.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Alexis Jewels offers a curated selection of fine jewellery pieces that combine traditional craftsmanship with modern aesthetics."
+  },
+  {
+    "slug": "hatton-garden-diamond",
+    "name": "Hatton Garden Diamond",
+    "category": "Retail / Diamonds",
+    "description": "Specialist diamond merchants providing GIA certified diamonds and bespoke settings.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@hattongardendiamond.com",
+    "website": "https://www.hattongardendiamond.com",
+    "address": "32 Hatton Garden, London EC1N 8DH",
+    "rating": 4.7,
+    "reviewsCount": 88,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Hatton Garden Diamonds.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Hatton Garden Diamond is dedicated to providing high-quality stones at competitive prices, direct from the heart of the trade."
+  },
+  {
+    "slug": "webley-london",
+    "name": "Webley London",
+    "category": "Retail / Fine Jewellery",
+    "description": "Contemporary fine jewellery brand with a focus on artisanal quality.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@webley.london",
+    "website": "https://www.webley.london",
+    "address": "100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 65,
+    "openingTimes": "By Appointment",
+    "image": "/jewellers/webley London.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Webley London creates beautifully crafted pieces that tell a story of London heritage and modern design."
+  },
+  {
+    "slug": "smith-and-green-jewellers",
+    "name": "Smith and Green Jewellers",
+    "category": "Retail / Bespoke",
+    "description": "Bespoke jewellery designers specializing in custom engagement and wedding rings.",
+    "phone": "+44 7566 7564 99",
+    "email": "hello@smithandgreen.com",
+    "website": "https://www.smithandgreen.com",
+    "address": "97 Hatton Garden, London EC1N 8NX",
+    "rating": 5,
+    "reviewsCount": 112,
+    "openingTimes": "Monday to Saturday 09:30 - 18:00",
+    "image": "/jewellers/Smith and Green Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Smith and Green Jewellers are renowned for their personalized service and excellence in handcrafted jewellery design."
+  },
+  {
+    "slug": "the-heart-of-hatton-garden",
+    "name": "The Heart Of Hatton Garden",
+    "category": "Retail / Traditional",
+    "description": "Located in the soul of the district, offering classic collections and expert repairs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@heartofhattongarden.com",
+    "website": "https://www.hatton-garden.london/the-heart-of-hatton-garden",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.6,
+    "reviewsCount": 28,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/THe Heart of Hatton Garden.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "The Heart Of Hatton Garden is a heritage-focused jeweller providing a warm, traditional experience for every visitor."
+  },
+  {
+    "slug": "london-de",
+    "name": "London DE",
+    "category": "Retail / Ethical",
+    "description": "Multi-award winning ethical jeweller specializing in emeralds and bespoke designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@londonde.com",
+    "website": "https://www.londonde.com",
+    "address": "22 Greville St, London EC1N 8AF",
+    "rating": 5,
+    "reviewsCount": 156,
+    "openingTimes": "Monday to Friday 10:00 - 18:00",
+    "image": "/jewellers/London DE.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "London DE is a champion of ethical sourcing and transparent supply chains, particularly famous for their exquisite Colombian emeralds."
+  },
+  {
+    "slug": "as-jewellers",
+    "name": "A&S Jewellers",
+    "category": "Retail / Fine Jewellery",
+    "description": "Specialists in fine gold jewellery and diamond collections.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@asjewellers.london",
+    "website": "https://asjewellers.london",
+    "address": "24 Hatton Garden, London EC1N 8AJ",
+    "rating": 4.8,
+    "reviewsCount": 34,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/A&S Jewellers.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "A&S Jewellers provides high-quality fine jewellery with a personal touch, serving the Hatton Garden community for years."
+  },
+  {
+    "slug": "david-luton-jewellers",
+    "name": "David Luton Jewellers",
+    "category": "Retail / Family Business",
+    "description": "Expert family-run jeweller providing bespoke services and unique collections.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@davidluton.com",
+    "website": "https://davidlutonjewellers.com",
+    "address": "32 Hatton Garden, London EC1N 8DH",
+    "rating": 4.7,
+    "reviewsCount": 52,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/David Luton Jewellers.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "David Luton Jewellers prides itself on a legacy of trust and craftsmanship, offering one-to-one consultations for bespoke pieces."
+  },
+  {
+    "slug": "living-stones-jewellery",
+    "name": "Living Stones Jewellery",
+    "category": "Retail / Gemstones",
+    "description": "Exquisite gemstone specialists offering a wide range of precious stones and settings.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@livingstones.london",
+    "website": "https://livingstonegems.co.uk",
+    "address": "97 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 78,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Living Stones Jewellery.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Living Stones Jewellery is the destination for those seeking rare and vibrant gemstones, masterfully set into timeless designs."
+  },
+  {
+    "slug": "holts-lapidary",
+    "name": "Holts Lapidary",
+    "category": "Retail / Workshops",
+    "description": "Renowned lapidary artists and gemstone dealers with a historic workshop.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@holtslapidary.co.uk",
+    "website": "https://www.holtslapidary.co.uk",
+    "address": "98 Hatton Garden, London EC1N 8NX",
+    "rating": 5,
+    "reviewsCount": 210,
+    "openingTimes": "Monday to Friday 09:30 - 17:00",
+    "image": "/jewellers/Holts Lapidary.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Holts Lapidary combines generations of expertise in gemstone cutting and carving with a deep knowledge of the world's most precious minerals."
+  },
+  {
+    "slug": "the-wonder-gallery",
+    "name": "The Wonder Gallery",
+    "category": "Retail / Fine Jewellery",
+    "description": "A boutique destination showcasing unique and artistic jewellery collections.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@wondergallery.com",
+    "website": "https://www.thewondergallery.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 36,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/The Wonder Gallery.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "The Wonder Gallery is a curators' space featuring innovative designers and one-of-a-kind pieces that challenge traditional jewellery norms."
+  },
+  {
+    "slug": "nimaya-mindstation",
+    "name": "Nimaya Mindstation",
+    "category": "Health & Wellbeing",
+    "description": "Unique wellness centre in the heart of the district offering modern therapies.",
+    "phone": "+44 7566 7564 99",
+    "email": "relax@nimayamindstation.com",
+    "website": "https://www.nimaya.co",
+    "address": "97 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "openingTimes": "Monday to Sunday 09:00 - 20:00",
+    "image": "/jewellers/Nimaya Mindstation.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Nimaya Mindstation brings a unique wellness perspective to Hatton Garden, supporting the community with cutting-edge mental and physical wellbeing services."
+  },
+  {
+    "slug": "the-diamond-ring-company",
+    "name": "The Diamond Ring Company",
+    "category": "Retail / Diamonds",
+    "description": "Specializing in premium diamond engagement rings and bridal jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@thediamondringcompany.co.uk",
+    "website": "https://www.thediamondringcompany.co.uk",
+    "address": "Greville St, London EC1N 8AF",
+    "rating": 4.7,
+    "reviewsCount": 92,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/The Diamonds Ring Company.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "The Diamond Ring Company offers a vast selection of classic and contemporary rings, with a focus on high-grade diamonds and expert guidance."
+  },
+  {
+    "slug": "mia-sposa",
+    "name": "Mia Sposa",
+    "category": "Retail / Bridal",
+    "description": "Exclusive bridal boutique offering premium wedding attire and accessories.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@miasposa.com",
+    "website": "https://www.miasposa-centrallondon.co.uk",
+    "address": "22 Greville St, London EC1N 8AF",
+    "rating": 4.8,
+    "reviewsCount": 56,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Mia Spoosa.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Mia Sposa is a sanctuary for brides, providing a luxurious experience and a curated selection of couture wedding dresses and fine bridal accessories."
+  },
+  {
+    "slug": "hatton-garden-metals",
+    "name": "Hatton Garden Metals",
+    "category": "Trade / Bullion",
+    "description": "The UK's leading gold buyers and precious metal specialists.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@hattongardenmetals.com",
+    "website": "https://www.hattongardenmetals.com",
+    "address": "11 St Cross St, London EC1N 8UB",
+    "rating": 5,
+    "reviewsCount": 3200,
+    "openingTimes": "Monday to Friday 09:00 - 16:30",
+    "image": "/jewellers/hatton garden metals.jpg",
+    "socials": {
+      "twitter": "#"
+    },
+    "longDescription": "Hatton Garden Metals is a powerhouse in the precious metals industry, known for transparent pricing and professional service for both trade and public."
+  },
+  {
+    "slug": "the-vintage-ring-co",
+    "name": "The Vintage Ring Co.",
+    "category": "Retail / Vintage",
+    "description": "Antique and vintage engagement ring specialists with a handpicked collection.",
+    "phone": "+44 7566 7564 99",
+    "email": "hello@thevintageringco.com",
+    "website": "https://www.thevintageringco.com",
+    "address": "Hatton Garden Workshop, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 76,
+    "openingTimes": "Monday to Friday 10:00 - 17:00",
+    "image": "/jewellers/The Vintage Ring Co..jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "The Vintage Ring Co. curates a beautiful array of historic eras, from Art Deco to Victorian, ensuring every ring has a unique story to tell."
+  },
+  {
+    "slug": "catherine-marche",
+    "name": "Catherine Marche",
+    "category": "Retail / Handcrafted",
+    "description": "Award-winning bespoke jewellery designer handmaking unique and limited edition pieces.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@catherinemarche.com",
+    "website": "https://catherinemarche.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 38,
+    "openingTimes": "By Appointment",
+    "image": "/jewellers/Catherine Marche.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Catherine Marche creates elegant jewellery that reflects the natural beauty and character of the gemstones, all handcrafted in her Hatton Garden studio."
+  },
+  {
+    "slug": "berganza",
+    "name": "Berganza",
+    "category": "Retail / Antique",
+    "description": "Specialists in ancient, antique and vintage engagement rings and jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@berganza.com",
+    "website": "https://www.berganza.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 5,
+    "reviewsCount": 450,
+    "openingTimes": "Monday to Saturday 10:00 - 17:00",
+    "image": "/jewellers/Berganza.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Berganza is a world-leader in antique jewellery, housing one of the most extensive collections of historic rings ranging from Roman times through to the mid-20th century."
+  },
+  {
+    "slug": "fine-jewels",
+    "name": "Fine Jewels",
+    "category": "Retail / Diamonds",
+    "description": "Expert diamond jewellers providing a wide range of high-quality settings and stones.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@finejewels.london",
+    "website": "https://www.fine-jewels.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.7,
+    "reviewsCount": 84,
+    "openingTimes": "Monday to Saturday 10:30 - 17:30",
+    "image": "/jewellers/Fine Jewels.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Fine Jewels offers a sophisticated shopping experience with a focus on certified diamonds and timeless designs that symbolize life's most precious moments."
+  },
+  {
+    "slug": "chards-coin-bullion-dealer",
+    "name": "Chards Coin & Bullion Dealer",
+    "category": "Trade / Bullion",
+    "description": "Extensive experience in buying and selling investment gold, coins and bullion.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@chards.co.uk",
+    "website": "https://www.chards.co.uk",
+    "address": "Hatton Garden, London EC1N 8LE",
+    "rating": 4.8,
+    "reviewsCount": 1200,
+    "openingTimes": "Monday to Friday 09:00 - 17:00",
+    "image": "/jewellers/Chards Coin & Bullion Dealer.jpg",
+    "socials": {
+      "twitter": "#"
+    },
+    "longDescription": "Chards is a name synonymous with coin collecting and bullion dealing, providing unmatched expertise and transparency in the precious metals market."
+  },
+  {
+    "slug": "almaas-diamonds",
+    "name": "Almaas Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Bespoke diamond jewellery specialists with a passion for brilliance and clarity.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@almaasdiamonds.com",
+    "website": "https://www.almaasdiamonds.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 62,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Almaas Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Almaas Diamonds provides a truly personalized journey in creating your dream ring, sourcing only the finest GIA certified stones."
+  },
+  {
+    "slug": "davril-jewels",
+    "name": "Davril Jewels",
+    "category": "Retail / Bespoke",
+    "description": "Long-established family jewellers specializing in handcrafted bespoke designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@davriljewels.co.uk",
+    "website": "https://www.davriljewels.co.uk",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 45,
+    "openingTimes": "Monday to Friday 10:00 - 17:30",
+    "image": "/jewellers/Davril Jewels.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Davril Jewels combines traditional bench skills with modern design concepts, creating unique pieces that have been cherished across generations."
+  },
+  {
+    "slug": "carriage-diamonds",
+    "name": "Carriage Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Experts in high-quality diamonds and bespoke engagement ring design.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@carriagediamonds.com",
+    "website": "https://www.carriagediamonds.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 38,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Carriage Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Carriage Diamonds brings a touch of luxury and precision to every piece, ensuring that each customer finds or creates their perfect diamond jewellery."
+  },
+  {
+    "slug": "london-gold-centre",
+    "name": "London Gold Centre",
+    "category": "Trade / Bullion",
+    "description": "Trusted destination for buying and selling gold, jewellery and scrap luxury items.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@londongoldcentre.co.uk",
+    "website": "https://www.londongoldcentre.co.uk",
+    "address": "5 Hatton Garden, London EC1N 8AA",
+    "rating": 4.9,
+    "reviewsCount": 850,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/London Golden Centre.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "London Gold Centre is a prominent name in the district for precious metal trading, known for fair valuations and immediate payouts."
+  },
+  {
+    "slug": "the-lion-the-fox",
+    "name": "The Lion & The Fox",
+    "category": "Health & Wellbeing",
+    "description": "Creative hair and art destination providing an alternative vibe in the district.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@thelionandthefox.com",
+    "website": "https://www.thelionandthefox.com",
+    "address": "G-11, 40 Clerkenwell Rd, London EC1M 5RS",
+    "rating": 5,
+    "reviewsCount": 120,
+    "openingTimes": "Tuesday to Saturday",
+    "image": "/jewellers/The Lion & The Fox.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "The Lion & The Fox is more than a salon; it's a creative hub that blends style, art and community in the heart of London."
+  },
+  {
+    "slug": "solitaire",
+    "name": "Solitaire",
+    "category": "Retail / Diamonds",
+    "description": "Specialists in solitaire engagement rings and classic diamond jewellery.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@solitairelondon.com",
+    "website": "https://www.solitairelondon.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.7,
+    "reviewsCount": 56,
+    "openingTimes": "Monday to Saturday 10:30 - 17:30",
+    "image": "/jewellers/Solitaire.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Solitaire focuses on the timeless beauty of a single, perfect stone, offering a curated collection that highlights diamond purity."
+  },
+  {
+    "slug": "presman-mastermelt",
+    "name": "Presman Mastermelt",
+    "category": "Trade / Bullion",
+    "description": "Professional precious metal recovery and trade bullion services.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@mastermeltgroup.com",
+    "website": "https://www.mastermeltgroup.com",
+    "address": "24 Hatton Garden, London EC1N 8AJ",
+    "rating": 4.8,
+    "reviewsCount": 64,
+    "openingTimes": "Monday to Friday 09:00 - 17:00",
+    "image": "/jewellers/Presman Mastermelt.jpg",
+    "socials": {
+      "twitter": "#"
+    },
+    "longDescription": "Presman Mastermelt is a vital part of the district's trade infrastructure, providing industry-leading refining and assaying services."
+  },
+  {
+    "slug": "shining-diamonds",
+    "name": "Shining Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Ethically sourced diamonds and handcrafted jewellery with a British heritage.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@shiningdiamonds.co.uk",
+    "website": "https://www.shiningdiamonds.co.uk",
+    "address": "100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 340,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Shining Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Shining Diamonds is committed to bringing brilliance to your life, offering ethically sourced stones and masterfully crafted settings."
+  },
+  {
+    "slug": "channings",
+    "name": "Channings",
+    "category": "Retail / Traditional",
+    "description": "Family-run jewellers specializing in unique and classic diamond pieces.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@channings.co.uk",
+    "website": "https://www.channingsjewellers.co.uk",
+    "address": "24 Hatton Garden, London EC1N 8AJ",
+    "rating": 4.8,
+    "reviewsCount": 74,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Channings.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Channings has been a staple of Hatton Garden for generations, offering a warm and knowledgeable service for those looking for something truly special."
+  },
+  {
+    "slug": "quality-diamonds",
+    "name": "Quality Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Technology-driven diamond specialists providing transparency and exceptional value.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@qualitydiamonds.co.uk",
+    "website": "https://www.qualitydiamonds.co.uk",
+    "address": "Suite 112, 100 Hatton Garden, London EC1N 8NX",
+    "rating": 5,
+    "reviewsCount": 1800,
+    "openingTimes": "By Appointment Only",
+    "image": "/jewellers/Quality Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Quality Diamonds leverages modern technology to provide an unmatched level of detail and transparency in the diamond buying process, ensuring you get the perfect stone every time."
+  },
+  {
+    "slug": "e-katz-limited",
+    "name": "E Katz & Co Ltd",
+    "category": "Retail / Diamonds",
+    "description": "Specialists in loose diamonds and high-end jewellery manufacturing.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@ekatz.com",
+    "website": "https://www.ekatz.com",
+    "address": "24 Hatton Garden, London EC1N 8AJ",
+    "rating": 4.7,
+    "reviewsCount": 42,
+    "openingTimes": "Monday to Friday 09:00 - 17:00",
+    "image": "/jewellers/E Katz & Co .jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "E Katz & Co Ltd is a respected member of the district, known for their extensive stock of loose diamonds and their capability in creating bespoke masterpieces."
+  },
+  {
+    "slug": "alexander-craig",
+    "name": "Alexander Craig",
+    "category": "Retail / Bespoke",
+    "description": "Bespoke diamond jewellers with a focus on contemporary and elegant designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@alexandercraig.com",
+    "website": "https://www.alexandercraigjewellery.co.uk",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 36,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Alexander Criag.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Alexander Craig offers a personalized experience in the creation of bespoke jewellery, using traditional techniques to realize modern visions."
+  },
+  {
+    "slug": "tavex-bullion",
+    "name": "Tavex Bullion",
+    "category": "Trade / Bullion",
+    "description": "Global specialists in physical gold and silver bullion investment.",
+    "phone": "+44 7566 7564 99",
+    "email": "tavex@tavex.co.uk",
+    "website": "https://tavex.co.uk",
+    "address": "52 Hatton Garden, London EC1N 8YS",
+    "rating": 4.9,
+    "reviewsCount": 520,
+    "openingTimes": "Monday to Friday 09:00 - 17:00",
+    "image": "/jewellers/Tavex Bullion.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Tavex Bullion is a leading European currency and bullion dealer, providing competitive rates and professional service for precious metal investors."
+  },
+  {
+    "slug": "domino-jewellery",
+    "name": "Domino Jewellery",
+    "category": "Trade / Workshops",
+    "description": "One of the largest manufacturers of precious metal jewellery in the UK.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@dominojewellery.com",
+    "website": "https://www.dominojewellery.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 34,
+    "openingTimes": "Trade Only",
+    "image": "/jewellers/Domino Jewellery.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Domino Jewellery is an industry leader in jewellery manufacturing, providing a vast range of high-quality mounts, settings and finished pieces to the trade."
+  },
+  {
+    "slug": "farringdons-jewellery-ltd",
+    "name": "Farringdons Jewellery Ltd",
+    "category": "Retail / Antique",
+    "description": "Specialists in antique and vintage jewellery with a beautiful high-street presence.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@farringdonsjewellery.com",
+    "website": "https://www.farringdonsjewellery.com",
+    "address": "32 Hatton Garden, London EC1N 8DH",
+    "rating": 4.8,
+    "reviewsCount": 86,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Farringdons Jewellery Ltd.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Farringdons Jewellery Ltd offers a hand-curated selection of rare antique and vintage pieces, each with its own story and timeless appeal."
+  },
+  {
+    "slug": "london-diamond-bourse",
+    "name": "London Diamond Bourse",
+    "category": "Trade / Diamonds",
+    "description": "The primary diamond trading institution in the UK, based in Hatton Garden.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@londondiamondbourse.com",
+    "website": "https://www.londondiamondbourse.com",
+    "address": "100 Hatton Garden, London EC1N 8NX",
+    "rating": 5,
+    "reviewsCount": 120,
+    "openingTimes": "Trade Only",
+    "image": "/jewellers/London Diamond Bourse.jpg",
+    "socials": {
+      "twitter": "#"
+    },
+    "longDescription": "The London Diamond Bourse is an institution that guarantees the integrity of the diamond trade, providing a secure and professional environment for its members."
+  },
+  {
+    "slug": "london-victorian-ring-co",
+    "name": "London Victorian Ring Co",
+    "category": "Retail / Vintage",
+    "description": "Specializing in the creation of fine jewellery inspired by the Victorian and Art Deco eras.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@london-victorian-ring.com",
+    "website": "https://www.london-victorian-ring.com",
+    "address": "100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 145,
+    "openingTimes": "By Appointment",
+    "image": "/jewellers/London Victorian Ring  Co.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "London Victorian Ring Co is dedicated to preserving the elegance of historic eras, handcrafting new rings from original vintage designs and moulds."
+  },
+  {
+    "slug": "architecture-for-london",
+    "name": "Architecture for London",
+    "category": "Professional Services",
+    "description": "Award-winning architects providing bespoke design services in the district.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@architectureforlondon.com",
+    "website": "https://architectureforlondon.com",
+    "address": "8 Hatton Garden, London EC1N 8AH",
+    "rating": 4.8,
+    "reviewsCount": 22,
+    "openingTimes": "Monday to Friday 09:00 - 18:00",
+    "image": "/jewellers/Architecture for London.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Architecture for London brings sophisticated design sensibilities to the district, working on high-end residential and commercial projects that enhance the local architecture."
+  },
+  {
+    "slug": "amanda-mansell",
+    "name": "Amanda Mansell",
+    "category": "Retail / Handcrafted",
+    "description": "Contemporary jewellery designer known for innovative and motion-inspired pieces.",
+    "phone": "+44 7566 7564 99",
+    "email": "amanda@amandamansell.com",
+    "website": "https://www.amandamansell.com",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 5,
+    "reviewsCount": 18,
+    "openingTimes": "By Appointment",
+    "image": "/jewellers/Amanda Mansell.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Amanda Mansell is an artist-jeweller whose work explores interaction and play, resulting in beautifully engineered pieces that are both wearable and sculptural."
+  },
+  {
+    "slug": "ovadia",
+    "name": "Ovadia",
+    "category": "Retail / Diamonds",
+    "description": "Premium diamond jewellers providing a luxurious showroom experience.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@ovadiajeweller.com",
+    "website": "https://ovadiajewellery.com",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.9,
+    "reviewsCount": 156,
+    "openingTimes": "Monday to Saturday 10:00 - 17:30",
+    "image": "/jewellers/Ovadia.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Ovadia is synonymous with luxury and fine craftsmanship, offering a state-of-the-art showroom and a collection of the world's most beautiful diamonds."
+  },
+  {
+    "slug": "alan-bick",
+    "name": "Alan Bick",
+    "category": "Retail / Diamonds",
+    "description": "Highly established diamond merchants and bespoke ring specialists.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@alanbick.co.uk",
+    "website": "https://www.alanbick.co.uk",
+    "address": "88-90 Hatton Garden, London EC1N 8PN",
+    "rating": 4.8,
+    "reviewsCount": 65,
+    "openingTimes": "Monday to Saturday 10:00 - 18:00",
+    "image": "/jewellers/Alan Bick.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Alan Bick is a family-run business with a deep heritage in the diamond trade, offering a wide range of GIA certified diamonds and expert bespoke design services."
+  },
+  {
+    "slug": "deluxe-diamond",
+    "name": "Deluxe Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Specialists in certified diamonds and exquisite engagement ring designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "sales@deluxediamonds.com",
+    "website": "https://www.deluxediamonds.co.uk",
+    "address": "32 Hatton Garden, London EC1N 8DH",
+    "rating": 4.7,
+    "reviewsCount": 42,
+    "openingTimes": "Monday to Saturday 10:30 - 17:30",
+    "image": "/jewellers/Deluxe Diamonds.jpg",
+    "socials": {
+      "facebook": "#"
+    },
+    "longDescription": "Deluxe Diamonds provides a premium experience for those seeking high-quality diamond jewellery, with a focus on education and personalized service."
+  },
+  {
+    "slug": "primo-diamonds",
+    "name": "Primo Diamonds",
+    "category": "Retail / Diamonds",
+    "description": "Expert diamond dealers providing competitive pricing on high-quality stones.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@primodiamonds.com",
+    "website": "https://www.primodiamonds.co.uk",
+    "address": "Hatton Garden, London EC1N 8PN",
+    "rating": 4.6,
+    "reviewsCount": 28,
+    "openingTimes": "Monday to Friday 10:00 - 17:30",
+    "image": "/jewellers/Primo Diamonds.jpg",
+    "socials": {
+      "instagram": "#"
+    },
+    "longDescription": "Primo Diamonds is a trusted name for both trade and retail customers, offering a vast inventory of loose diamonds and expert setting services."
+  },
+  {
+    "slug": "wgi-lab",
+    "name": "World Gemological Institute (WGI LAB)",
+    "category": "Professional Services",
+    "description": "Leading independent gemological laboratory providing certification and grading.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@wgilab.com",
+    "website": "https://www.wgilab.com",
+    "address": "Suite 112, 100 Hatton Garden, London EC1N 8NX",
+    "rating": 4.9,
+    "reviewsCount": 110,
+    "openingTimes": "Monday to Friday 09:30 - 17:30",
+    "image": "/jewellers/World Gemological Insititute (WGI LAB).jpg",
+    "socials": {
+      "twitter": "#"
+    },
+    "longDescription": "WGI LAB is an essential part of the district's integrity, offering professional diamond and gemstone grading services to the trade and public using the latest technology."
+  },
+  {
+    "slug": "ravijewellers",
+    "name": "ravijewellers",
+    "category": "jewllery",
+    "description": "Timeless Elegance, Inspired by Heritage\nExplore timeless jewellery that blends heritage design with modern elegance.",
+    "phone": "077 737 3337",
+    "email": "info@ravijewellers.lk",
+    "website": "https://ravijewellers.lk/",
+    "address": "115 Sea Street, Colombo, Sri Lanka",
+    "rating": 4.5,
+    "reviewsCount": 0,
+    "openingTimes": "Monday to Sunday 10.00am to 08.00pm",
+    "image": "https://ravijewellers.lk/wp-content/uploads/2024/11/gold-h-1536x566.png",
+    "socials": {
+      "twitter": "",
+      "facebook": "",
+      "instagram": ""
+    },
+    "longDescription": "Visit Our Flagship Store\nExplore our exclusive collection of fine gold, silver, and platinum jewellery, crafted to add elegance to every moment. Recognized as one of the best jewellery destinations in Sri Lanka and the best jewellery in Colombo, visit us in-store and discover timeless pieces that celebrate your unique style."
+  },
+  {
+    "slug": "harper-tait-fine-jewellery",
+    "name": "Harper Tait Fine Jewellery",
+    "category": "Retail / Fine Jewellery",
+    "description": "Specializes in beautiful fine jewellery and engagement rings, offering a contemporary take on classic designs.",
+    "phone": "+44 7566 7564 99",
+    "email": "info@harpertait.com",
+    "website": "https://www.harpertait.com",
+    "address": "Suite 26, New House, 67-68 Hatton Garden, London, EC1N 8JY",
+    "rating": 5,
+    "reviewsCount": 347,
+    "openingTimes": "Monday to Saturday 10am - 7pm",
+    "image": "/jewellers/Harper tait fine.jpg",
+    "socials": {
+      "twitter": "https://twitter.com/harpertait",
+      "facebook": "https://facebook.com/harpertait",
+      "instagram": "https://instagram.com/harpertait"
+    },
+    "longDescription": "Harper Tait has been a prominent name in Hatton Garden, dedicated to creating exquisite fine jewellery and bespoke engagement rings."
+  }
+]

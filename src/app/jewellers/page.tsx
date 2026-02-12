@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ChevronRight, Phone, Navigation, LayoutGrid, List, X, ExternalLink, MapPin } from "lucide-react";
-import { jewellers, Jeweller } from "@/data/jewellers";
+import { ChevronRight, Phone, Navigation, LayoutGrid, List, X, ExternalLink, MapPin, Loader2 } from "lucide-react";
+import type { Jeweller } from "@/data/jewellers";
 
 const ActionModal = ({ 
   isOpen, 
@@ -86,7 +86,26 @@ const JewellersPage = () => {
   const [modalType, setModalType] = useState<"phone" | "map" | null>(null);
   const [selectedJeweller, setSelectedJeweller] = useState<Jeweller | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [jewellers, setJewellers] = useState<Jeweller[]>([]);
+  const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(10);
+
+  useEffect(() => {
+    async function fetchJewellers() {
+      try {
+        const response = await fetch('/api/admin/jewellers');
+        const result = await response.json();
+        if (result.success) {
+          setJewellers(result.data);
+        }
+      } catch (error) {
+        console.error("Error fetching jewellers:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchJewellers();
+  }, []);
 
   const openModal = (jeweller: Jeweller, type: "phone" | "map") => {
     setSelectedJeweller(jeweller);
@@ -186,7 +205,12 @@ const JewellersPage = () => {
       {/* Main Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
-          {filteredJewellers.length > 0 ? (
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-32 space-y-4">
+              <Loader2 className="w-12 h-12 text-black animate-spin" />
+              <p className="text-black/40 text-[10px] font-bold tracking-widest uppercase">Loading Jewellers...</p>
+            </div>
+          ) : filteredJewellers.length > 0 ? (
             <div className="flex flex-col items-center">
               {viewMode === "grid" ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 w-full">

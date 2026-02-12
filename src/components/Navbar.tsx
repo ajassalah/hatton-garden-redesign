@@ -87,7 +87,7 @@ const Navbar = ({ solid = false, hideBookButton = false }: { solid?: boolean; hi
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex space-x-12 items-center">
+          <div className="hidden lg:flex space-x-7 items-center">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
                 {link.dropdown ? (
@@ -96,7 +96,7 @@ const Navbar = ({ solid = false, hideBookButton = false }: { solid?: boolean; hi
                     onMouseEnter={() => setCategoriesOpen(true)}
                     onMouseLeave={() => setCategoriesOpen(false)}
                   >
-                    <span className={`text-[13px] font-bold text-spaced transition-colors duration-300 ${
+                    <span className={`text-[14px] font-bold text-spaced transition-colors duration-300 ${
                       isLightMode ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"
                     }`}>
                       {link.name}
@@ -133,7 +133,7 @@ const Navbar = ({ solid = false, hideBookButton = false }: { solid?: boolean; hi
                 ) : (
                   <Link
                     href={link.href}
-                    className={`text-[13px] font-bold text-spaced transition-colors duration-300 ${
+                    className={`text-[14px] font-bold text-spaced transition-colors duration-300 ${
                       isLightMode ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"
                     }`}
                   >
@@ -144,14 +144,14 @@ const Navbar = ({ solid = false, hideBookButton = false }: { solid?: boolean; hi
             ))}
             <button 
               onClick={() => setSearchOpen(true)}
-              className={`${isLightMode ? "text-black" : "text-white"} hover:scale-110 transition-transform ml-4`}
+              className={`${isLightMode ? "text-black" : "text-white"} hover:scale-110 transition-transform ml-2`}
             >
-              <Search size={20} strokeWidth={1.5} />
+              <Search size={22} strokeWidth={1.5} />
             </button>
             {!hideBookButton && (
               <Link 
                 href="/book-appointment"
-                className="ml-6 px-6 py-2.5 bg-emerald-600 text-white text-[12px] font-bold uppercase tracking-[0.12em] hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="ml-4 px-6 py-2.5 bg-emerald-600 text-white text-[12px] font-bold uppercase tracking-[0.12em] hover:bg-emerald-700 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Book Appointment
               </Link>

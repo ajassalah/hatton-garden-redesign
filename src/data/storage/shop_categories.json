@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "name": "Engagement Rings",
+    "description": "Find your perfect engagement ring from Hatton Garden's finest jewellers specializing in diamonds and bespoke designs",
+    "icon": "Heart",
+    "image": "/jewellers/queensmith.jpg",
+    "count": "50+ Specialists",
+    "type": "shop"
+  },
+  {
+    "id": "2",
+    "name": "Wedding Rings",
+    "description": "Discover beautiful wedding bands, matching sets, and eternity rings crafted by expert jewellers",
+    "icon": "Sparkles",
+    "image": "/jewellers/London Victorian Ring  Co.jpg",
+    "count": "40+ Jewellers",
+    "type": "shop"
+  },
+  {
+    "id": "3",
+    "name": "Diamond Jewellery",
+    "description": "Explore stunning diamond necklaces, earrings, bracelets and rings from GIA-certified specialists",
+    "icon": "Gem",
+    "image": "/jewellers/hatton garden diamond.jpg",
+    "count": "60+ Stores",
+    "type": "shop"
+  },
+  {
+    "id": "4",
+    "name": "Luxury Watches",
+    "description": "Premium timepieces from Rolex, Cartier, Patek Philippe and other world-renowned brands",
+    "icon": "Watch",
+    "image": "/jewellers/luxury watch.webp",
+    "count": "25+ Retailers",
+    "type": "shop"
+  },
+  {
+    "id": "5",
+    "name": "Bespoke Jewellery",
+    "description": "Custom-designed pieces crafted to your exact specifications by master jewellers and designers",
+    "icon": "Crown",
+    "image": "/jewellers/baspoke.jpg",
+    "count": "35+ Designers",
+    "type": "shop"
+  },
+  {
+    "id": "6",
+    "name": "Gold & Silver Jewellery",
+    "description": "Fine gold and silver jewellery including chains, bracelets, earrings and rings for every occasion",
+    "icon": "Gift",
+    "image": "/jewellers/gold and silver.webp",
+    "count": "45+ Shops",
+    "type": "shop"
+  },
+  {
+    "id": "7",
+    "name": "Vintage & Antique",
+    "description": "Rare vintage pieces, Art Deco designs, and antique jewellery from specialist dealers",
+    "icon": "Award",
+    "image": "/jewellers/wintage and antique.jpeg",
+    "count": "20+ Dealers",
+    "type": "shop"
+  },
+  {
+    "id": "8",
+    "name": "Gemstone Jewellery",
+    "description": "Sapphires, rubies, emeralds and other precious gemstones set in stunning designs",
+    "icon": "Star",
+    "image": "/jewellers/holts gems.jpg",
+    "count": "30+ Specialists",
+    "type": "shop"
+  },
+  {
+    "id": "9",
+    "name": "Pearls",
+    "description": "Cultured pearls, South Sea pearls, and baroque pearl jewellery from expert pearl dealers",
+    "icon": "Zap",
+    "image": "/jewellers/pearls ads.jpg",
+    "count": "15+ Retailers",
+    "type": "shop"
+  },
+  {
+    "id": "10",
+    "name": "Men's Jewellery",
+    "description": "Cufflinks, signet rings, chains, and watches designed specifically for men",
+    "icon": "Diamond",
+    "image": "/jewellers/mens jewels.avif",
+    "count": "25+ Stores",
+    "type": "shop"
+  },
+  {
+    "id": "11",
+    "name": "Necklaces & Pendants",
+    "description": "From delicate chains to statement necklaces, find the perfect piece for any occasion",
+    "icon": "Sparkles",
+    "image": "/jewellers/nacless with pendone.webp",
+    "count": "40+ Jewellers",
+    "type": "shop"
+  },
+  {
+    "id": "12",
+    "name": "Earrings",
+    "description": "Studs, hoops, drops and chandelier earrings in gold, silver, platinum and diamonds",
+    "icon": "Star",
+    "image": "/jewellers/anais rose.jpg",
+    "count": "45+ Retailers",
+    "type": "shop"
+  },
+  {
+    "id": "13",
+    "name": "Bracelets & Bangles",
+    "description": "Tennis bracelets, charm bracelets, cuffs and bangles in precious metals and gemstones",
+    "icon": "Gift",
+    "image": "/jewellers/braclet and bagles.webp",
+    "count": "35+ Shops",
+    "type": "shop"
+  },
+  {
+    "id": "15",
+    "name": "Jewellery Repairs",
+    "description": "Expert repair services, resizing, restoration and cleaning by skilled craftsmen",
+    "icon": "Award",
+    "image": "/jewellers/Jewelry_Repair_Expert_midtown_jewelers.webp",
+    "count": "30+ Workshops",
+    "type": "shop"
+  },
+  {
+    "id": "16",
+    "name": "Loose Diamonds",
+    "description": "GIA-certified loose diamonds for custom rings and jewellery from trusted dealers",
+    "icon": "Gem",
+    "image": "/jewellers/buy fine diamonds.jpg",
+    "count": "40+ Dealers",
+    "type": "shop"
+  },
+  {
+    "id": "14",
+    "name": "Brooches & Pins",
+    "description": "Vintage brooches, modern pins and statement pieces from specialist dealers",
+    "icon": "Crown",
+    "image": "/jewellers/Alexis Jewels.jpg",
+    "count": "18+ Dealers",
+    "type": "shop"
+  }
+]

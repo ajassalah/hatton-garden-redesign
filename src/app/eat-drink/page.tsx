@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ChevronRight, Phone, Navigation, LayoutGrid, List, X, ExternalLink, MapPin, Coffee, Utensils } from "lucide-react";
-import { cafes, Cafe } from "@/data/cafes";
+import { ChevronRight, Phone, Navigation, LayoutGrid, List, X, ExternalLink, MapPin, Coffee, Utensils, Loader2 } from "lucide-react";
+import type { Cafe } from "@/data/cafes";
 
 const ActionModal = ({ 
   isOpen, 
@@ -86,6 +86,25 @@ const EatDrinkPage = () => {
   const [modalType, setModalType] = useState<"phone" | "map" | null>(null);
   const [selectedCafe, setSelectedCafe] = useState<Cafe | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [cafes, setCafes] = useState<Cafe[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCafes() {
+      try {
+        const response = await fetch('/api/admin/cafes');
+        const result = await response.json();
+        if (result.success) {
+          setCafes(result.data);
+        }
+      } catch (error) {
+        console.error("Error fetching cafes:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCafes();
+  }, []);
 
   const openModal = (cafe: Cafe, type: "phone" | "map") => {
     setSelectedCafe(cafe);
@@ -185,7 +204,12 @@ const EatDrinkPage = () => {
       {/* Main Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
-          {filteredCafes.length > 0 ? (
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-32 space-y-4">
+              <Loader2 className="w-12 h-12 text-black animate-spin" />
+              <p className="text-black/40 text-[10px] font-bold tracking-widest uppercase">Loading Establishments...</p>
+            </div>
+          ) : filteredCafes.length > 0 ? (
             viewMode === "grid" ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
                 {filteredCafes.map((cafe, index) => (

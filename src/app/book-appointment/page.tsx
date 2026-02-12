@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { X, CheckCircle2, Calendar, Clock as ClockIcon, Sparkles } from "lucide-react";
+import { X, CheckCircle2, Calendar, Clock as ClockIcon, Sparkles, ChevronDown } from "lucide-react";
 
 const SuccessModal = ({ isOpen, onClose, data }: { isOpen: boolean; onClose: () => void; data: any }) => {
   if (!isOpen) return null;
@@ -64,6 +64,227 @@ const SuccessModal = ({ isOpen, onClose, data }: { isOpen: boolean; onClose: () 
           </button>
         </div>
       </div>
+    </div>
+  );
+};
+
+const CustomSelect = ({ 
+  label, 
+  value, 
+  options, 
+  onChange, 
+  placeholder, 
+  required 
+}: { 
+  label: string; 
+  value: string; 
+  options: { value: string; label: string }[]; 
+  onChange: (val: string) => void; 
+  placeholder: string;
+  required?: boolean;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="group relative">
+      <label className={`block text-[10px] font-bold uppercase tracking-[0.2em] mb-3 transition-colors ${isOpen ? 'text-emerald-600' : 'text-black/40'}`}>
+        {label} {required && <span className="text-emerald-600">*</span>}
+      </label>
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className={`w-full bg-transparent border-b py-3 text-left transition-all font-light flex justify-between items-center ${
+            isOpen ? 'border-emerald-600' : 'border-platinum'
+          } ${!value ? 'text-black/30' : 'text-black'}`}
+        >
+          <span className="text-sm">{value ? options.find(o => o.value === value)?.label : placeholder}</span>
+          <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-emerald-600' : 'text-black/20'}`} />
+        </button>
+
+        {isOpen && (
+          <>
+            <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+            <div className="absolute top-full left-0 w-full mt-2 bg-white shadow-2xl border border-platinum z-50 animate-in fade-in zoom-in-95 duration-200">
+              {options.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => {
+                    onChange(option.value);
+                    setIsOpen(false);
+                  }}
+                  className="w-full text-left px-6 py-4 text-[11px] font-bold text-spaced text-black/60 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all border-b border-platinum/50 last:border-0 uppercase"
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const CustomDatePicker = ({ 
+  label, 
+  value, 
+  onChange, 
+  required 
+}: { 
+  label: string; 
+  value: string; 
+  onChange: (val: string) => void; 
+  required?: boolean;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  const daysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
+  const firstDayOfMonth = (year: number, month: number) => new Date(year, month, 1).getDay();
+
+  const handleDayClick = (day: number) => {
+    const selectedDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    onChange(formattedDate);
+    setIsOpen(false);
+  };
+
+  const renderCalendar = () => {
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    const totalDays = daysInMonth(year, month);
+    const startDay = firstDayOfMonth(year, month);
+    const days = [];
+
+    // Empty slots for previous month
+    for (let i = 0; i < startDay; i++) {
+        days.push(<div key={`empty-${i}`} className="p-2 text-transparent">0</div>);
+    }
+
+    // Actual days
+    for (let i = 1; i <= totalDays; i++) {
+        const isToday = new Date().toDateString() === new Date(year, month, i).toDateString();
+        const isSelected = value === new Date(year, month, i).toISOString().split('T')[0];
+        
+        days.push(
+            <button
+                key={i}
+                type="button"
+                onClick={() => handleDayClick(i)}
+                className={`p-2 text-[10px] font-bold hover:bg-emerald-50 hover:text-emerald-600 transition-all rounded-full ${isToday ? 'border border-emerald-600 text-emerald-600' : ''} ${isSelected ? 'bg-emerald-600 text-white hover:bg-emerald-700' : 'text-black/60'}`}
+            >
+                {i}
+            </button>
+        );
+    }
+
+    return days;
+  };
+
+  return (
+    <div className="group relative">
+        <label className={`block text-[10px] font-bold uppercase tracking-[0.2em] mb-3 transition-colors ${isOpen ? 'text-emerald-600' : 'text-black/40'}`}>
+            {label} {required && <span className="text-emerald-600">*</span>}
+        </label>
+        <div className="relative">
+            <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className={`w-full bg-transparent border-b py-3 text-left transition-all font-light flex justify-between items-center ${
+                    isOpen ? 'border-emerald-600' : 'border-platinum'
+                } ${!value ? 'text-black/30' : 'text-black'}`}
+            >
+                <span className="text-sm">
+                    {value ? new Date(value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : "Select Date"}
+                </span>
+                <Calendar size={14} className={`transition-colors duration-300 ${isOpen ? 'text-emerald-600' : 'text-black/20'}`} />
+            </button>
+
+            {isOpen && (
+                <>
+                    <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+                    <div className="absolute top-full left-0 w-full mt-2 bg-white shadow-2xl border border-platinum z-50 p-6 animate-in fade-in zoom-in-95 duration-200">
+                        <div className="flex justify-between items-center mb-6">
+                            <button type="button" onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))} className="text-black/40 hover:text-black transition-colors"><ChevronDown size={14} className="rotate-90" /></button>
+                            <h4 className="text-[11px] font-bold uppercase tracking-[0.2em] text-black">
+                                {currentMonth.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+                            </h4>
+                            <button type="button" onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))} className="text-black/40 hover:text-black transition-colors"><ChevronDown size={14} className="-rotate-90" /></button>
+                        </div>
+                        <div className="grid grid-cols-7 gap-2 text-center mb-2">
+                            {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(day => (
+                                <div key={day} className="text-[8px] font-extrabold text-black/20 uppercase tracking-widest">{day}</div>
+                            ))}
+                        </div>
+                        <div className="grid grid-cols-7 gap-1">
+                            {renderCalendar()}
+                        </div>
+                    </div>
+                </>
+            )}
+        </div>
+    </div>
+  );
+};
+
+const CustomTimePicker = ({ 
+  label, 
+  value, 
+  onChange, 
+  required 
+}: { 
+  label: string; 
+  value: string; 
+  onChange: (val: string) => void; 
+  required?: boolean;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeSlots = [
+    "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", 
+    "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", 
+    "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM"
+  ];
+
+  return (
+    <div className="group relative">
+        <label className={`block text-[10px] font-bold uppercase tracking-[0.2em] mb-3 transition-colors ${isOpen ? 'text-emerald-600' : 'text-black/40'}`}>
+            {label} {required && <span className="text-emerald-600">*</span>}
+        </label>
+        <div className="relative">
+            <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className={`w-full bg-transparent border-b py-3 text-left transition-all font-light flex justify-between items-center ${
+                    isOpen ? 'border-emerald-600' : 'border-platinum'
+                } ${!value ? 'text-black/30' : 'text-black'}`}
+            >
+                <span className="text-sm">{value || "Select Time"}</span>
+                <ClockIcon size={14} className={`transition-colors duration-300 ${isOpen ? 'text-emerald-600' : 'text-black/20'}`} />
+            </button>
+
+            {isOpen && (
+                <>
+                    <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+                    <div className="absolute top-full left-0 w-full mt-2 bg-white shadow-2xl border border-platinum z-50 max-h-60 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+                        {timeSlots.map((time) => (
+                            <button
+                                key={time}
+                                type="button"
+                                onClick={() => {
+                                    onChange(time);
+                                    setIsOpen(false);
+                                }}
+                                className={`w-full text-left px-8 py-4 text-[11px] font-bold text-spaced transition-all border-b border-platinum/50 last:border-0 uppercase ${value === time ? 'text-emerald-600 bg-emerald-50' : 'text-black/60 hover:text-emerald-600 hover:bg-emerald-50/50'}`}
+                            >
+                                {time}
+                            </button>
+                        ))}
+                    </div>
+                </>
+            )}
+        </div>
     </div>
   );
 };
@@ -158,7 +379,7 @@ export default function BookAppointmentPage() {
               <div className="absolute -bottom-10 -right-10 w-20 h-20 border-r border-b border-platinum -z-10 hidden md:block"></div>
               
               <form onSubmit={handleSubmit} className="px-8 md:px-16 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
                   {/* First Name */}
                   <div className="group">
                     <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3 group-focus-within:text-emerald-600 transition-colors">
@@ -169,7 +390,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.firstName}
                       onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
+                      className="w-full bg-transparent border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light text-sm placeholder:text-black/20"
                       placeholder="e.g. James"
                     />
                   </div>
@@ -184,7 +405,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.lastName}
                       onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
+                      className="w-full bg-transparent border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light text-sm placeholder:text-black/20"
                       placeholder="e.g. Hatton"
                     />
                   </div>
@@ -199,7 +420,7 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
+                      className="w-full bg-transparent border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light text-sm placeholder:text-black/20"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -214,75 +435,54 @@ export default function BookAppointmentPage() {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
+                      className="w-full bg-transparent border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light text-sm placeholder:text-black/20"
                       placeholder="+44"
                     />
                   </div>
 
                   {/* Appointment Type */}
-                  <div className="group">
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3 group-focus-within:text-emerald-600 transition-colors">
-                      Consultation Type <span className="text-emerald-600">*</span>
-                    </label>
-                    <select
-                      required
-                      value={formData.appointmentType}
-                      onChange={(e) => setFormData({...formData, appointmentType: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light cursor-pointer appearance-none"
-                    >
-                      <option value="">Select preference</option>
-                      <option value="In Store Appointment">Private In-Store Visit</option>
-                      <option value="Online Appointment">Virtual Video Call</option>
-                    </select>
-                  </div>
+                  <CustomSelect 
+                    label="Consultation Type"
+                    required
+                    value={formData.appointmentType}
+                    placeholder="Select preference"
+                    options={[
+                      { value: "In Store Appointment", label: "Private In-Store Visit" },
+                      { value: "Online Appointment", label: "Virtual Video Call" }
+                    ]}
+                    onChange={(val) => setFormData({...formData, appointmentType: val})}
+                  />
 
                   {/* Product Interest */}
-                  <div className="group">
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3 group-focus-within:text-emerald-600 transition-colors">
-                      Primary Interest
-                    </label>
-                    <select
-                      value={formData.productInterest}
-                      onChange={(e) => setFormData({...formData, productInterest: e.target.value, customProduct: ""})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light cursor-pointer appearance-none"
-                    >
-                      <option value="">Select interest</option>
-                      <option value="Engagement Rings">Engagement Rings</option>
-                      <option value="Wedding Rings">Wedding Bands</option>
-                      <option value="Bespoke Design">Bespoke Jewelry</option>
-                      <option value="Luxury Watches">Luxury Watches</option>
-                      <option value="Others">Something Else</option>
-                    </select>
-                  </div>
+                  <CustomSelect 
+                    label="Primary Interest"
+                    value={formData.productInterest}
+                    placeholder="Select interest"
+                    options={[
+                      { value: "Engagement Rings", label: "Engagement Rings" },
+                      { value: "Wedding Rings", label: "Wedding Bands" },
+                      { value: "Bespoke Design", label: "Bespoke Jewelry" },
+                      { value: "Luxury Watches", label: "Luxury Watches" },
+                      { value: "Others", label: "Something Else" }
+                    ]}
+                    onChange={(val) => setFormData({...formData, productInterest: val})}
+                  />
 
                   {/* Appointment Date */}
-                  <div className="group">
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3 group-focus-within:text-emerald-600 transition-colors">
-                      Preferred Date <span className="text-emerald-600">*</span>
-                    </label>
-                    <input
-                      type="date"
-                      required
-                      value={formData.appointmentDate}
-                      onChange={(e) => setFormData({...formData, appointmentDate: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
-                      min={new Date().toISOString().split('T')[0]}
-                    />
-                  </div>
+                  <CustomDatePicker 
+                    label="Preferred Date"
+                    required
+                    value={formData.appointmentDate}
+                    onChange={(val) => setFormData({...formData, appointmentDate: val})}
+                  />
 
                   {/* Appointment Time */}
-                  <div className="group">
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3 group-focus-within:text-emerald-600 transition-colors">
-                      Preferred Time <span className="text-emerald-600">*</span>
-                    </label>
-                    <input
-                      type="time"
-                      required
-                      value={formData.appointmentTime}
-                      onChange={(e) => setFormData({...formData, appointmentTime: e.target.value})}
-                      className="w-full bg-white border-b border-platinum px-0 py-3 text-black focus:border-emerald-600 outline-none transition-all font-light"
-                    />
-                  </div>
+                  <CustomTimePicker 
+                    label="Preferred Time"
+                    required
+                    value={formData.appointmentTime}
+                    onChange={(val) => setFormData({...formData, appointmentTime: val})}
+                  />
                 </div>
 
                 {/* Submit Button */}
