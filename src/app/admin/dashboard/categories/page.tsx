@@ -132,7 +132,7 @@ export default function CategoriesManagement() {
       message: 'Are you sure you want to delete this category? This will not affect existing items but they will no longer be grouped under this category.',
       variant: 'danger',
       onConfirm: async () => {
-        const token = localStorage.getItem('admin_token');
+        const token = localStorage.getItem('admin_token') || '';
         try {
           const response = await fetch(`/api/admin/categories/${id}`, {
             method: 'DELETE',
@@ -163,7 +163,7 @@ export default function CategoriesManagement() {
   };
 
   const handleFormSubmit = async (data: any) => {
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('admin_token') || '';
     const url = formMode === 'create' 
       ? '/api/admin/categories'
       : `/api/admin/categories/${editingCategory?.id}`;

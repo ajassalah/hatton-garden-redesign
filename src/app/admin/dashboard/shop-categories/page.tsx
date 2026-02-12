@@ -158,7 +158,7 @@ export default function ShopCategoriesManagement() {
       message: 'Are you sure you want to move this category to the recycle bin?',
       variant: 'warning',
       onConfirm: async () => {
-        const token = localStorage.getItem('admin_token');
+        const token = localStorage.getItem('admin_token') || '';
         try {
           const response = await fetch(`/api/admin/shop-categories/${id}`, {
             method: 'DELETE',
@@ -189,7 +189,7 @@ export default function ShopCategoriesManagement() {
   };
 
   const handleFormSubmit = async (data: any) => {
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('admin_token') || '';
     const url = formMode === 'create' 
       ? '/api/admin/shop-categories'
       : `/api/admin/shop-categories/${editingCategory?.id}`;
@@ -242,7 +242,7 @@ export default function ShopCategoriesManagement() {
   };
 
   const handleRestore = async (id: string) => {
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('admin_token') || '';
     try {
       const response = await fetch('/api/admin/shop-categories/trash', {
         method: 'POST',
@@ -268,7 +268,7 @@ export default function ShopCategoriesManagement() {
   };
 
   const handlePermanentDelete = async (id: string) => {
-    const token = localStorage.getItem('admin_token');
+    const token = localStorage.getItem('admin_token') || '';
     try {
       const response = await fetch('/api/admin/shop-categories/trash', {
         method: 'POST',
