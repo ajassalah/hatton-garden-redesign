@@ -64,62 +64,81 @@ export default function BinModal({
   const getSubTitle = () => `Restore or permanently delete ${type}`;
 
   return (
-    <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
-      <div className="bg-slate-900 border border-white/10 rounded-2xl w-full max-w-4xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col max-h-[80vh]">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
+      <div className="bg-slate-900 border border-white/10 rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300">
         {/* Header */}
-        <div className="p-6 border-b border-white/10 flex items-center justify-between bg-white/5">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-red-500/20 rounded-lg">
-              <Trash2 className="w-6 h-6 text-red-400" />
+        <div className="p-6 md:p-8 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+          <div className="flex items-center gap-6">
+            <div className="p-4 bg-red-500/10 rounded-2xl shadow-xl shadow-red-500/5">
+              <Trash2 className="w-8 h-8 text-red-400" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-white">{getTitle()}</h2>
-              <p className="text-gray-400 text-sm">{getSubTitle()}</p>
+              <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter italic">{getTitle()}</h2>
+              <p className="text-purple-400/60 text-[10px] font-black uppercase tracking-[0.2em] mt-1">{getSubTitle()}</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-lg transition-all text-gray-400">
+          <button 
+            onClick={onClose} 
+            className="p-4 bg-white/5 hover:bg-white/10 rounded-2xl text-gray-400 transition-all border border-white/10"
+          >
             <X className="w-6 h-6" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
           {loading ? (
-            <div className="py-20 text-center text-gray-400">Loading trash...</div>
+            <div className="py-24 text-center">
+               <div className="inline-block w-8 h-8 border-2 border-purple-500/20 border-t-purple-500 rounded-full animate-spin mb-4"></div>
+               <p className="text-gray-500 text-sm font-light italic">Accessing archive...</p>
+            </div>
           ) : deletedItems.length === 0 ? (
-            <div className="py-20 text-center">
-              <Trash className="w-16 h-16 text-gray-700 mx-auto mb-4" />
-              <p className="text-gray-400 text-lg">Your recycle bin is empty</p>
+            <div className="py-24 text-center">
+              <div className="p-8 bg-white/5 rounded-full inline-block mb-6">
+                <Trash className="w-16 h-16 text-gray-700 mx-auto" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 italic">Archive is Empty</h3>
+              <p className="text-gray-500 font-light italic">No items currently in the recycle bin.</p>
             </div>
           ) : (
-            <div className="rounded-xl border border-white/5">
-              <table className="w-full text-left">
-                <thead className="bg-white/5 text-gray-300 text-sm uppercase tracking-wider">
+            <div className="rounded-2xl border border-white/5 overflow-hidden">
+              <table className="w-full text-left border-collapse">
+                <thead className="bg-white/5 text-gray-500 text-[10px] font-black uppercase tracking-widest">
                   <tr>
-                    <th className="px-6 py-4 font-semibold">{type === 'users' ? 'Username' : 'Name'}</th>
-                    <th className="px-6 py-4 font-semibold">{type === 'users' ? 'Role' : 'Category'}</th>
-                    <th className="px-6 py-4 font-semibold text-center">{type === 'users' ? 'Email' : 'Details'}</th>
-                    <th className="px-6 py-4 font-semibold text-right">Action</th>
+                    <th className="px-8 py-5 border-b border-white/5">{type === 'users' ? 'Username' : 'Archive Name'}</th>
+                    <th className="px-8 py-5 border-b border-white/5">{type === 'users' ? 'Role' : 'Category'}</th>
+                    <th className="px-8 py-5 border-b border-white/5 text-center">{type === 'users' ? 'Security' : 'Metadata'}</th>
+                    <th className="px-8 py-5 border-b border-white/5 text-right">Operations</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-gray-300">
+                <tbody className="divide-y divide-white/[0.02] text-gray-400">
                   {deletedItems.map((item) => (
-                    <tr key={item.slug || item.id} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="px-6 py-4 font-medium text-white">{item.name || item.title || item.username}</td>
-                      <td className="px-6 py-4 text-purple-400">{item.category || item.role}</td>
-                      <td className="px-6 py-4 text-center">
+                    <tr key={item.slug || item.id} className="group hover:bg-white/[0.02] transition-colors">
+                      <td className="px-8 py-6">
+                        <span className="font-bold text-white group-hover:text-purple-400 transition-colors uppercase tracking-tight">
+                          {item.name || item.title || item.username}
+                        </span>
+                      </td>
+                      <td className="px-8 py-6">
+                        <span className="bg-purple-500/10 text-purple-400/80 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-purple-500/10">
+                          {item.category || item.role}
+                        </span>
+                      </td>
+                      <td className="px-8 py-6 text-center">
                         {item.email ? (
-                           <span className="text-gray-400 text-xs">{item.email}</span>
+                           <span className="text-gray-500 text-xs font-mono">{item.email}</span>
                         ) : item.rating ? (
-                          <div className="inline-flex items-center gap-1 bg-yellow-500/10 px-2 py-0.5 rounded text-yellow-400 text-xs">
+                          <div className="inline-flex items-center gap-1.5 bg-yellow-500/5 px-3 py-1 rounded-lg text-yellow-500 text-xs font-bold border border-yellow-500/10">
                             ★ {item.rating}
                           </div>
-                        ) : item.date}
+                        ) : (
+                          <span className="text-gray-500 text-xs italic">{item.date}</span>
+                        )}
                       </td>
-                      <td className="px-6 py-4 text-right relative overflow-visible">
+                      <td className="px-8 py-6 text-right relative overflow-visible">
                         <button 
                           onClick={() => setActiveMenu(activeMenu === (item.slug || item.id) ? null : (item.slug || item.id))}
-                          className="p-2 hover:bg-white/10 rounded-lg transition-all"
+                          className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all border border-white/5"
                         >
                           <MoreVertical className="w-5 h-5" />
                         </button>
@@ -130,28 +149,29 @@ export default function BinModal({
                               className="fixed inset-0 z-10" 
                               onClick={() => setActiveMenu(null)}
                             />
-                            <div className="absolute right-6 top-10 bg-slate-800 border border-white/10 rounded-xl shadow-2xl py-2 w-48 z-[100] animate-in fade-in zoom-in-95 duration-200">
+                            <div className="absolute right-8 top-12 bg-slate-800 border border-white/10 rounded-2xl shadow-2xl py-2 w-56 z-[100] animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden">
                               <button
                                 onClick={() => {
                                   onRestore(item.slug || item.id);
                                   setActiveMenu(null);
                                   setDeletedItems(prev => prev.filter(i => (i.slug || i.id) !== (item.slug || item.id)));
                                 }}
-                                className="w-full px-4 py-2 text-left hover:bg-emerald-500/20 text-emerald-400 flex items-center gap-3 transition-colors"
+                                className="w-full px-5 py-3 text-left hover:bg-emerald-500/10 text-emerald-400 flex items-center gap-4 transition-colors font-bold text-xs uppercase tracking-widest"
                               >
                                 <RotateCcw className="w-4 h-4" />
-                                <span>Restore</span>
+                                <span>Restore Entity</span>
                               </button>
+                              <div className="h-px bg-white/5 mx-2 my-1" />
                               <button
                                 onClick={() => {
                                   onDeletePermanent(item.slug || item.id);
                                   setActiveMenu(null);
                                   setDeletedItems(prev => prev.filter(i => (i.slug || i.id) !== (item.slug || item.id)));
                                 }}
-                                className="w-full px-4 py-2 text-left hover:bg-red-500/20 text-red-400 flex items-center gap-3 transition-colors"
+                                className="w-full px-5 py-3 text-left hover:bg-red-500/10 text-red-500 flex items-center gap-4 transition-colors font-bold text-xs uppercase tracking-widest"
                               >
                                 <Trash2 className="w-4 h-4" />
-                                <span>Delete Permanently</span>
+                                <span>Final Deletion</span>
                               </button>
                             </div>
                           </>
@@ -160,7 +180,7 @@ export default function BinModal({
                     </tr>
                   ))}
                   {/* Spacer to ensure the last row's dropdown isn't clipped */}
-                  <tr className="h-32">
+                  <tr className="h-32 pointer-events-none">
                     <td colSpan={4}></td>
                   </tr>
                 </tbody>
@@ -170,12 +190,12 @@ export default function BinModal({
         </div>
 
         {/* Footer */}
-        <div className="p-6 bg-white/5 border-t border-white/10 text-right">
+        <div className="p-6 md:p-8 bg-slate-900/50 backdrop-blur-md border-t border-white/10 text-right">
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all"
+            className="w-full md:w-auto px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold rounded-2xl transition-all uppercase tracking-widest text-[10px]"
           >
-            Close
+            Close Archive
           </button>
         </div>
       </div>

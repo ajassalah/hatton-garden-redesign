@@ -1,88 +1,92 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authenticateRequest } from '@/lib/auth';
-import { jewellers as initialJewellers, Jeweller } from '@/data/jewellers';
-import { readData, addItem } from '@/lib/db';
+import pool, { safeJSONParse } from '@/lib/mysql';
+import { migrate } from '@/lib/migrate';
+
+// Ensure tables exist
+let migrated = false;
+async function ensureMigrated() {
+  if (!migrated) { await migrate(); migrated = true; }
+}
+
+function rowToJeweller(row: any) {
+  return {
+    ...row,
+    rating: parseFloat(row.rating),
+    reviewsCount: row.reviews_count,
+    longDescription: row.long_description,
+    openingTimes: safeJSONParse(row.opening_times),
+    socials: safeJSONParse(row.socials),
+    gallery: safeJSONParse(row.gallery),
+  };
+}
 
 // GET all jewellers
 export async function GET(request: NextRequest) {
+  await ensureMigrated();
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
     const search = searchParams.get('search');
 
-    const data = await readData<Jeweller>('jewellers', initialJewellers);
-    let filtered = [...data];
+    let query = 'SELECT * FROM jewellers WHERE deleted_at IS NULL';
+    const params: any[] = [];
 
     if (category && category !== 'all') {
-      filtered = filtered.filter(j => j.category.toLowerCase().includes(category.toLowerCase()));
+      query += ' AND category LIKE ?';
+      params.push(`%${category}%`);
     }
-
     if (search) {
-      const searchLower = search.toLowerCase();
-      filtered = filtered.filter(j => 
-        j.name.toLowerCase().includes(searchLower) ||
-        j.description.toLowerCase().includes(searchLower) ||
-        j.category.toLowerCase().includes(searchLower)
-      );
+      query += ' AND (name LIKE ? OR description LIKE ? OR category LIKE ?)';
+      params.push(`%${search}%`, `%${search}%`, `%${search}%`);
     }
+    query += ' ORDER BY created_at DESC';
 
-    return NextResponse.json({
-      success: true,
-      data: filtered,
-      total: filtered.length
-    });
+    const [rows] = await pool.execute(query, params);
+    const data = (rows as any[]).map(rowToJeweller);
+
+    return NextResponse.json({ success: true, data, total: data.length });
   } catch (error) {
     console.error('Error fetching jewellers:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch jewellers' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch jewellers' }, { status: 500 });
   }
 }
 
 // POST - Create new jeweller (protected)
 export async function POST(request: NextRequest) {
+  await ensureMigrated();
   const user = authenticateRequest(request);
-  if (!user) {
-    return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
-    );
-  }
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const body = await request.json();
-    const newJeweller: Jeweller = {
-      slug: body.slug || body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-      name: body.name,
-      category: body.category,
-      description: body.description,
-      phone: body.phone,
-      email: body.email,
-      website: body.website,
-      address: body.address,
-      rating: body.rating || 4.5,
-      reviewsCount: body.reviewsCount || 0,
-      openingTimes: body.openingTimes,
-      image: body.image || '/jewellers/placeholder.jpg',
-      socials: body.socials || {},
-      longDescription: body.longDescription || body.description,
-      gallery: body.gallery || []
-    };
+    const slug = body.slug || body.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
-    const updatedData = await addItem<Jeweller>('jewellers', newJeweller, initialJewellers);
-    
-    return NextResponse.json({
-      success: true,
-      data: newJeweller,
-      message: 'Jeweller created successfully'
-    }, { status: 201 });
+    await pool.execute(
+      `INSERT INTO jewellers (slug, name, category, description, long_description, phone, email, website, address, rating, reviews_count, image, gallery, opening_times, socials)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        slug,
+        body.name,
+        body.category || '',
+        body.description || '',
+        body.longDescription || body.description || '',
+        body.phone || '',
+        body.email || '',
+        body.website || '',
+        body.address || '',
+        body.rating || 4.5,
+        body.reviewsCount || 0,
+        body.image || '/jewellers/placeholder.jpg',
+        JSON.stringify(body.gallery || []),
+        JSON.stringify(body.openingTimes || {}),
+        JSON.stringify(body.socials || {}),
+      ]
+    );
 
+    return NextResponse.json({ success: true, data: { slug, ...body }, message: 'Jeweller created successfully' }, { status: 201 });
   } catch (error) {
     console.error('Error creating jeweller:', error);
-    return NextResponse.json(
-      { error: 'Failed to create jeweller' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to create jeweller' }, { status: 500 });
   }
 }

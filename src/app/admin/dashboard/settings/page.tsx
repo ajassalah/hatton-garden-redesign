@@ -34,13 +34,10 @@ export default function Settings() {
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
-    if (!token) {
-      router.push('/admin');
-      return;
+    if (token) {
+      fetchSettings(token);
     }
-
-    fetchSettings(token);
-  }, [router]);
+  }, []);
 
   const fetchSettings = async (token: string) => {
     try {
@@ -106,29 +103,29 @@ export default function Settings() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div className="flex items-center gap-4">
             <button
               onClick={() => router.push('/admin/dashboard')}
-              className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all"
+              className="p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all border border-white/10"
             >
-              <ArrowLeft className="w-6 h-6 text-white" />
+              <ArrowLeft className="w-5 h-5 text-white" />
             </button>
             <div>
-              <h1 className="text-4xl font-bold text-white mb-2">Settings</h1>
-              <p className="text-gray-400">Configure your site settings</p>
+              <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 underline decoration-purple-500/50 underline-offset-8 uppercase tracking-tight">Settings</h1>
+              <p className="text-gray-400 text-sm">Configure your site settings</p>
             </div>
           </div>
           <button 
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover:shadow-xl transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-xl hover:shadow-xl shadow-green-500/20 transform hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-widest"
           >
             <Save className="w-5 h-5" />
-            {saving ? 'Saving...' : 'Save Changes'}
+            <span>{saving ? 'Saving...' : 'Save Changes'}</span>
           </button>
         </div>
 

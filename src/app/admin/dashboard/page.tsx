@@ -170,136 +170,91 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      <div className="flex">
-        {/* Sidebar */}
-        <aside className="w-64 min-h-screen bg-black/30 backdrop-blur-xl border-r border-white/10">
-          <div className="p-6">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <Gem className="w-6 h-6 text-white" />
+    <div className="p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 underline decoration-purple-500/50 underline-offset-8">Dashboard Overview</h1>
+          <p className="text-gray-400 text-sm mt-4">Welcome back! Here's what's happening with your site.</p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+          {statCards.map((stat) => (
+            <div
+              key={stat.label}
+              className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all group overflow-hidden"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}></div>
+              <div className="relative">
+                <div className={`inline-flex p-3 ${stat.bgColor} rounded-xl mb-4`}>
+                  <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
+                </div>
+                <p className="text-gray-400 text-xs md:text-sm mb-1 font-bold uppercase tracking-wider">{stat.label}</p>
+                <p className="text-2xl md:text-3xl font-black text-white">{stat.value}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Quick Actions */}
+        <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-6 uppercase tracking-widest italic font-serif">Quick Actions</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a
+              href="/admin/dashboard/jewellers"
+              className="flex items-center gap-4 p-4 bg-purple-500/5 border border-purple-500/20 rounded-xl hover:bg-purple-500/10 transition-all group"
+            >
+              <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Gem className="w-6 h-6 text-purple-400" />
               </div>
               <div>
-                <h2 className="text-white font-bold">Hatton Garden</h2>
-                <p className="text-gray-400 text-xs">Admin Panel</p>
+                <h3 className="text-white font-bold text-sm">Jewellers</h3>
+                <p className="text-gray-400 text-[10px] uppercase font-medium">Add/Edit Listings</p>
               </div>
-            </div>
+            </a>
 
-            <nav className="space-y-2">
-              {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                    item.active
-                      ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white border border-purple-500/30'
-                      : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                  }`}
-                >
-                  <item.icon className="w-5 h-5" />
-                  <span className="font-medium">{item.label}</span>
-                </a>
-              ))}
-            </nav>
-
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500/10 transition-all w-full mt-8"
+            <a
+              href="/admin/dashboard/cafes"
+              className="flex items-center gap-4 p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl hover:bg-orange-500/10 transition-all group"
             >
-              <LogOut className="w-5 h-5" />
-              <span className="font-medium">Logout</span>
-            </button>
-          </div>
-        </aside>
-
-        {/* Main Content */}
-        <main className="flex-1 p-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-4xl font-bold text-white mb-2">Dashboard Overview</h1>
-              <p className="text-gray-400">Welcome back! Here's what's happening with your site.</p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {statCards.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all group"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}></div>
-                  <div className="relative">
-                    <div className={`inline-flex p-3 ${stat.bgColor} rounded-xl mb-4`}>
-                      <stat.icon className={`w-6 h-6 ${stat.iconColor}`} />
-                    </div>
-                    <p className="text-gray-400 text-sm mb-1">{stat.label}</p>
-                    <p className="text-3xl font-bold text-white">{stat.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Quick Actions */}
-            <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
-              <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a
-                  href="/admin/dashboard/jewellers"
-                  className="flex items-center gap-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-xl hover:bg-purple-500/20 transition-all group"
-                >
-                  <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Gem className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">Manage Jewellers</h3>
-                    <p className="text-gray-400 text-sm">Add or edit jeweller listings</p>
-                  </div>
-                </a>
-
-                <a
-                  href="/admin/dashboard/cafes"
-                  className="flex items-center gap-4 p-4 bg-orange-500/10 border border-orange-500/30 rounded-xl hover:bg-orange-500/20 transition-all group"
-                >
-                  <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Coffee className="w-6 h-6 text-orange-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">Manage Cafes</h3>
-                    <p className="text-gray-400 text-sm">Update dining options</p>
-                  </div>
-                </a>
-
-                <a
-                  href="/admin/dashboard/blog"
-                  className="flex items-center gap-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl hover:bg-blue-500/20 transition-all group"
-                >
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <FileText className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">Manage Blog</h3>
-                    <p className="text-gray-400 text-sm">Share news and updates</p>
-                  </div>
-                </a>
-
-                <a
-                  href="/admin/dashboard/shop-categories"
-                  className="flex items-center gap-4 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl hover:bg-emerald-500/20 transition-all group"
-                >
-                  <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <ShoppingBag className="w-6 h-6 text-emerald-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">Categories</h3>
-                    <p className="text-gray-400 text-sm">Update public shop page</p>
-                  </div>
-                </a>
-
+              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Coffee className="w-6 h-6 text-orange-400" />
               </div>
-            </div>
+              <div>
+                <h3 className="text-white font-bold text-sm">Cafes</h3>
+                <p className="text-gray-400 text-[10px] uppercase font-medium">Update Dining</p>
+              </div>
+            </a>
+
+            <a
+              href="/admin/dashboard/blog"
+              className="flex items-center gap-4 p-4 bg-blue-500/5 border border-blue-500/20 rounded-xl hover:bg-blue-500/10 transition-all group"
+            >
+              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <FileText className="w-6 h-6 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-sm">Blog</h3>
+                <p className="text-gray-400 text-[10px] uppercase font-medium">Share News</p>
+              </div>
+            </a>
+
+            <a
+              href="/admin/dashboard/shop-categories"
+              className="flex items-center gap-4 p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl hover:bg-emerald-500/10 transition-all group"
+            >
+              <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <ShoppingBag className="w-6 h-6 text-emerald-400" />
+              </div>
+              <div>
+                <h3 className="text-white font-bold text-sm">Categories</h3>
+                <p className="text-gray-400 text-[10px] uppercase font-medium">Public Storefront</p>
+              </div>
+            </a>
+
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );

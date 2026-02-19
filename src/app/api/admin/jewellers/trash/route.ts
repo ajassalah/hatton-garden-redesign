@@ -1,39 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authenticateRequest } from '@/lib/auth';
-import { Jeweller } from '@/data/jewellers';
-import { readTrash, restoreItem, deletePermanently } from '@/lib/db';
+import pool from '@/lib/mysql';
 
+// GET - jewellers in bin
 export async function GET(request: NextRequest) {
   const user = authenticateRequest(request);
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
-    const data = await readTrash<Jeweller>('jewellers');
-    return NextResponse.json({
-      success: true,
-      data: data
-    });
+    const [rows] = await pool.execute('SELECT * FROM jewellers WHERE deleted_at IS NOT NULL ORDER BY deleted_at DESC');
+    return NextResponse.json({ success: true, data: rows });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch trash' }, { status: 500 });
   }
 }
 
+// POST - restore or permanently delete
 export async function POST(request: NextRequest) {
   const user = authenticateRequest(request);
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const { action, slug } = await request.json();
 
     if (action === 'restore') {
-      await restoreItem<Jeweller>('jewellers', slug);
+      await pool.execute('UPDATE jewellers SET deleted_at = NULL WHERE slug = ?', [slug]);
       return NextResponse.json({ success: true, message: 'Jeweller restored successfully' });
-    } else if (action === 'delete') {
-      await deletePermanently<Jeweller>('jewellers', slug);
+    }
+
+    if (action === 'delete') {
+      await pool.execute('DELETE FROM jewellers WHERE slug = ?', [slug]);
       return NextResponse.json({ success: true, message: 'Jeweller deleted permanently' });
     }
 

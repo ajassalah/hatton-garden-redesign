@@ -1,101 +1,68 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authenticateRequest } from '@/lib/auth';
-import { blogPosts as initialBlogPosts, BlogPost } from '@/data/blog';
-import { readData, updateItem, softDeleteItem } from '@/lib/db';
+import pool from '@/lib/mysql';
 
-// GET single blog post by slug
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   try {
     const { slug } = await params;
-    const data = await readData<BlogPost>('blog', initialBlogPosts);
-    const post = data.find(p => p.slug === slug);
-
-    if (!post) {
-      return NextResponse.json(
-        { error: 'Blog post not found' },
-        { status: 404 }
-      );
-    }
-
-    return NextResponse.json({
-      success: true,
-      data: post
-    });
+    const [rows] = await pool.execute('SELECT * FROM blog_posts WHERE slug = ? AND deleted_at IS NULL', [slug]);
+    const data = rows as any[];
+    if (!data.length) return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
+    const post = { ...data[0], hasFullArticle: !!data[0].has_full_article };
+    return NextResponse.json({ success: true, data: post });
   } catch (error) {
     console.error('Error fetching blog post:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch blog post' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch blog post' }, { status: 500 });
   }
 }
 
-// PUT - Update blog post (protected)
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   const user = authenticateRequest(request);
-  if (!user) {
-    return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
-    );
-  }
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const { slug } = await params;
     const body = await request.json();
 
-    const updatedData = await updateItem<BlogPost>('blog', slug, body, initialBlogPosts);
-    const updatedPost = updatedData.find(p => p.slug === slug || p.slug === body.slug);
-    
-    return NextResponse.json({
-      success: true,
-      data: updatedPost,
-      message: 'Blog post updated successfully'
-    });
+    await pool.execute(
+      `UPDATE blog_posts SET
+        title = COALESCE(?, title),
+        excerpt = COALESCE(?, excerpt),
+        content = COALESCE(?, content),
+        image = COALESCE(?, image),
+        author = COALESCE(?, author),
+        category = COALESCE(?, category),
+        status = COALESCE(?, status),
+        has_full_article = COALESCE(?, has_full_article)
+       WHERE slug = ? AND deleted_at IS NULL`,
+      [
+        body.title || null, body.excerpt || null, body.content || null,
+        body.image || null, body.author || null, body.category || null,
+        body.status || null,
+        body.hasFullArticle !== undefined ? (body.hasFullArticle ? 1 : 0) : null,
+        slug,
+      ]
+    );
 
+    const [rows] = await pool.execute('SELECT * FROM blog_posts WHERE slug = ?', [body.slug || slug]);
+    const updated = (rows as any[])[0];
+    return NextResponse.json({ success: true, data: updated ? { ...updated, hasFullArticle: !!updated.has_full_article } : null, message: 'Blog post updated successfully' });
   } catch (error) {
     console.error('Error updating blog post:', error);
-    return NextResponse.json(
-      { error: 'Failed to update blog post' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to update blog post' }, { status: 500 });
   }
 }
 
-// DELETE - Delete blog post (protected)
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: Promise<{ slug: string }> }
-) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   const user = authenticateRequest(request);
-  if (!user) {
-    return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
-    );
-  }
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
   try {
     const { slug } = await params;
-
-    await softDeleteItem<BlogPost>('blog', slug, initialBlogPosts);
-    
-    return NextResponse.json({
-      success: true,
-      message: 'Blog post moved to bin successfully'
-    });
-
+    await pool.execute('UPDATE blog_posts SET deleted_at = NOW() WHERE slug = ?', [slug]);
+    return NextResponse.json({ success: true, message: 'Blog post moved to bin successfully' });
   } catch (error) {
     console.error('Error deleting blog post:', error);
-    return NextResponse.json(
-      { error: 'Failed to delete blog post' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to delete blog post' }, { status: 500 });
   }
 }

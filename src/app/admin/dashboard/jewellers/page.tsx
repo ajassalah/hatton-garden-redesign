@@ -88,13 +88,10 @@ export default function JewellersManagement() {
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
-    if (!token) {
-      router.push('/admin');
-      return;
+    if (token) {
+      fetchJewellers(token);
     }
-
-    fetchJewellers(token);
-  }, [router]);
+  }, []);
 
   useEffect(() => {
     filterJewellers();
@@ -329,34 +326,35 @@ export default function JewellersManagement() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-white mb-2 underline decoration-purple-500/50 underline-offset-8">Manage Jewellers</h1>
-            <p className="text-gray-400">View and manage all jeweller listings</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 underline decoration-purple-500/50 underline-offset-8 uppercase tracking-tight">Manage Jewellers</h1>
+            <p className="text-gray-400 text-sm mt-4">View and manage all jeweller listings</p>
           </div>
           
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3">
              <button
                 onClick={() => router.push('/admin/dashboard')}
-                className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all border border-white/10 flex items-center justify-center min-w-[100px]"
+                className="flex-1 md:flex-none px-4 md:px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all border border-white/10 flex items-center justify-center gap-2 text-sm"
               >
-                Back
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back</span>
              </button>
              
              <button 
                 onClick={() => setIsBinOpen(true)}
-                className="flex items-center gap-2 px-6 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 font-semibold rounded-xl border border-red-500/20 transition-all group"
+                className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 font-semibold rounded-xl border border-red-500/20 transition-all group text-sm"
               >
-                <Trash className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Recycle Bin
+                <Trash className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span>Bin</span>
              </button>
 
              <button 
                 onClick={handleCreateNew}
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:shadow-xl shadow-purple-500/20 transform hover:scale-105 transition-all"
+                className="w-full md:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl hover:shadow-xl shadow-purple-500/20 transform hover:scale-[1.02] active:scale-95 transition-all text-sm"
               >
                 <Plus className="w-5 h-5" />
                 Add New Jeweller
@@ -429,15 +427,21 @@ export default function JewellersManagement() {
                     <Gem className="w-12 h-12 text-white/20" />
                   </div>
                 )}
-                <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                <div className="absolute top-3 right-3 flex gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-2 lg:group-hover:translate-y-0 transition-all duration-300 z-10">
                   <button 
-                    onClick={() => handleEdit(jeweller)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleEdit(jeweller);
+                    }}
                     className="p-2.5 bg-blue-500 hover:bg-blue-600 rounded-xl shadow-xl transition-all"
                   >
                     <Edit className="w-4 h-4 text-white" />
                   </button>
                   <button 
-                    onClick={() => handleDelete(jeweller.slug)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(jeweller.slug);
+                    }}
                     className="p-2.5 bg-red-500 hover:bg-red-600 rounded-xl shadow-xl transition-all"
                   >
                     <Trash2 className="w-4 h-4 text-white" />

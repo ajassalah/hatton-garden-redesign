@@ -63,188 +63,181 @@ export default function BlogForm({ isOpen, onClose, onSubmit, initialData, mode 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-slate-900 rounded-2xl border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-md">
+      <div className="bg-slate-900 rounded-3xl border border-white/10 w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <h2 className="text-2xl font-bold text-white">
-            {mode === 'create' ? 'Create New Post' : 'Edit Post'}
-          </h2>
+        <div className="flex items-center justify-between p-4 md:p-8 border-b border-white/10">
+          <div>
+            <h2 className="text-xl md:text-3xl font-black text-white uppercase tracking-tighter">
+              {mode === 'create' ? 'Create New Post' : 'Edit Post'}
+            </h2>
+            <p className="text-purple-400/60 text-[10px] font-black uppercase tracking-[0.2em] mt-1">Editorial Content Management</p>
+          </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white/10 rounded-lg transition-all"
+            className="p-3 bg-white/5 hover:bg-white/10 rounded-2xl text-gray-400 transition-all border border-white/10"
           >
-            <X className="w-6 h-6 text-gray-400" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Title */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Post Title <span className="text-red-400">*</span>
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.title}
-                onChange={(e) => setFormData({...formData, title: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="The Ultimate Guide to Hatton Garden..."
-              />
-            </div>
-
-            {/* Author */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Author
-              </label>
-              <input
-                type="text"
-                value={formData.author}
-                onChange={(e) => setFormData({...formData, author: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="Admin"
-              />
-            </div>
-
-            {/* Date */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Date
-              </label>
-              <input
-                type="date"
-                value={formData.date}
-                onChange={(e) => setFormData({...formData, date: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-
-            {/* Category */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Category
-              </label>
-              <select
-                value={formData.category}
-                onChange={(e) => setFormData({...formData, category: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-              >
-                <option value="" className="bg-slate-800">Select category...</option>
-                <option value="Jewelry" className="bg-slate-800">Jewelry</option>
-                <option value="Lifestyle" className="bg-slate-800">Lifestyle</option>
-                <option value="Dining" className="bg-slate-800">Dining</option>
-                <option value="Events" className="bg-slate-800">Events</option>
-                <option value="Guides" className="bg-slate-800">Guides</option>
-              </select>
-            </div>
-
-            {/* Status */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Status
-              </label>
-              <div className="flex items-center gap-4 mt-2">
-                <button
-                  type="button"
-                  onClick={() => setFormData({...formData, status: 'published'})}
-                  className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                    formData.status === 'published'
-                    ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                  }`}
-                >
-                  Published
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setFormData({...formData, status: 'draft'})}
-                  className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                    formData.status === 'draft'
-                    ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20' 
-                    : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                  }`}
-                >
-                  Draft
-                </button>
+        {/* Form Content */}
+        <form onSubmit={handleSubmit} className="flex-1 flex flex-col min-h-0">
+          <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+              {/* Title Section */}
+              <div className="md:col-span-2">
+                <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">
+                  Article Title <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.title}
+                  onChange={(e) => setFormData({...formData, title: e.target.value})}
+                  className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white text-lg font-bold placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all"
+                  placeholder="e.g. The Hidden Gems of Hatton Garden"
+                />
               </div>
-            </div>
 
-            {/* Has Full Article */}
-            <div className="flex items-center gap-3 md:mt-8">
-               <input
-                 type="checkbox"
-                 id="hasFullArticle"
-                 checked={formData.hasFullArticle}
-                 onChange={(e) => setFormData({...formData, hasFullArticle: e.target.checked})}
-                 className="w-5 h-5 rounded border-white/20 bg-white/10 text-purple-500 focus:ring-purple-500"
-               />
-               <label htmlFor="hasFullArticle" className="text-sm font-medium text-gray-300">
-                 This post has a full article page
-               </label>
-            </div>
+              {/* Meta Info Group */}
+              <div className="space-y-4 md:space-y-6">
+                <div>
+                  <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Author Name</label>
+                  <input
+                    type="text"
+                    value={formData.author}
+                    onChange={(e) => setFormData({...formData, author: e.target.value})}
+                    className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all font-light"
+                  />
+                </div>
 
-            {/* Image URL */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Featured Image URL
-              </label>
-              <input
-                type="text"
-                value={formData.image}
-                onChange={(e) => setFormData({...formData, image: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="/Blog/hero-image.jpg"
-              />
-            </div>
+                <div>
+                  <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Published Category</label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData({...formData, category: e.target.value})}
+                    className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all font-light"
+                  >
+                    <option value="" className="bg-slate-800">Select category...</option>
+                    <option value="Jewelry" className="bg-slate-800">Jewelry</option>
+                    <option value="Lifestyle" className="bg-slate-800">Lifestyle</option>
+                    <option value="Dining" className="bg-slate-800">Dining</option>
+                    <option value="Events" className="bg-slate-800">Events</option>
+                    <option value="Guides" className="bg-slate-800">Guides</option>
+                  </select>
+                </div>
+              </div>
 
-            {/* Excerpt */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Excerpt (Brief summary)
-              </label>
-              <textarea
-                rows={2}
-                value={formData.excerpt}
-                onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                placeholder="A short summary for the card display..."
-              />
-            </div>
+              <div className="space-y-4 md:space-y-6">
+                <div>
+                  <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Publishing Date</label>
+                  <input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => setFormData({...formData, date: e.target.value})}
+                    className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all font-light"
+                  />
+                </div>
 
-            {/* Content */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Content (Internal text/HTML)
-              </label>
-              <textarea
-                rows={8}
-                value={formData.content}
-                onChange={(e) => setFormData({...formData, content: e.target.value})}
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono text-sm"
-                placeholder="Full article content goes here..."
-              />
+                <div>
+                  <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Publication Status</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setFormData({...formData, status: 'published'})}
+                      className={`py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                        formData.status === 'published'
+                        ? 'bg-green-500 text-white shadow-lg shadow-green-500/20' 
+                        : 'bg-white/5 text-gray-500 hover:bg-white/10 border border-white/5'
+                      }`}
+                    >
+                      Published
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({...formData, status: 'draft'})}
+                      className={`py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                        formData.status === 'draft'
+                        ? 'bg-yellow-500 text-black shadow-lg shadow-yellow-500/20' 
+                        : 'bg-white/5 text-gray-500 hover:bg-white/10 border border-white/5'
+                      }`}
+                    >
+                      Draft
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visibility Options */}
+              <div className="md:col-span-2">
+                <label className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-2xl cursor-pointer hover:bg-white/10 transition-all">
+                  <input
+                    type="checkbox"
+                    checked={formData.hasFullArticle}
+                    onChange={(e) => setFormData({...formData, hasFullArticle: e.target.checked})}
+                    className="w-6 h-6 rounded-lg border-white/10 bg-black/20 text-purple-500 focus:ring-purple-500"
+                  />
+                  <div>
+                    <p className="text-sm font-bold text-white uppercase tracking-wider">Enable Article Page</p>
+                    <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Allow users to view the full story</p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Image URL */}
+              <div className="md:col-span-2">
+                <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Hero Image Source URL</label>
+                <input
+                  type="text"
+                  value={formData.image}
+                  onChange={(e) => setFormData({...formData, image: e.target.value})}
+                  className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+                  placeholder="/blog/image.webp"
+                />
+              </div>
+
+              {/* Excerpt */}
+              <div className="md:col-span-2">
+                <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Executive Summary</label>
+                <textarea
+                  rows={2}
+                  value={formData.excerpt}
+                  onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
+                  className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500/50 font-light italic"
+                  placeholder="A brief teaser for the article card..."
+                />
+              </div>
+
+              {/* Content Body */}
+              <div className="md:col-span-2">
+                <label className="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-2 block">Editorial Body (HTML Supported)</label>
+                <textarea
+                  rows={10}
+                  value={formData.content}
+                  onChange={(e) => setFormData({...formData, content: e.target.value})}
+                  className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500/50 font-mono text-xs leading-relaxed"
+                  placeholder="Begin writing your masterpiece here..."
+                />
+              </div>
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="flex items-center justify-end gap-4 mt-8 pt-6 border-t border-white/10">
+          {/* Sticky Footer for Form */}
+          <div className="flex-none flex flex-col md:flex-row items-center justify-end gap-3 p-4 md:p-8 border-t border-white/10 bg-slate-900/50 backdrop-blur-md">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all"
+              className="w-full md:w-auto px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold rounded-2xl transition-all uppercase tracking-widest text-[10px]"
             >
-              Cancel
+              Cancel Edit
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:shadow-xl transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-black rounded-2xl hover:shadow-2xl shadow-purple-500/20 transform hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-widest text-[10px]"
             >
-              {loading ? 'Saving...' : mode === 'create' ? 'Create Post' : 'Update Post'}
+              {loading ? 'Submitting...' : mode === 'create' ? 'Publish Article' : 'Update Content'}
             </button>
           </div>
         </form>
