@@ -13,6 +13,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 export default function Sidebar() {
@@ -81,7 +82,7 @@ export default function Sidebar() {
             {menuItems.map((item) => {
               const isActive = pathname === item.href;
               return (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 group ${
@@ -95,7 +96,7 @@ export default function Sidebar() {
                   {isActive && (
                     <div className="ml-auto w-1.5 h-1.5 bg-purple-500 rounded-full shadow-[0_0_10px_purple]" />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>

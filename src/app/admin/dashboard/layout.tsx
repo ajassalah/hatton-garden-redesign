@@ -27,16 +27,18 @@ export default function DashboardLayout({
           }
         });
 
-        if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
           localStorage.removeItem('admin_token');
           router.push('/admin');
           return;
         }
 
-        setAuthorized(true);
+        if (response.ok) {
+          setAuthorized(true);
+        }
       } catch (error) {
-        localStorage.removeItem('admin_token');
-        router.push('/admin');
+        console.error('Auth check failed:', error);
+        // On network error, we don't necessarily want to log out
       }
     };
 

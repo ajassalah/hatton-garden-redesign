@@ -16,6 +16,7 @@ import {
   Tags,
   ShoppingBag
 } from 'lucide-react';
+import Link from 'next/link';
 
 interface DashboardStats {
   jewellers: number;
@@ -39,36 +40,11 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    const verifyAuth = async () => {
-      const token = localStorage.getItem('admin_token');
-      if (!token) {
-        router.push('/admin');
-        return;
-      }
-
-      try {
-        const response = await fetch('/api/admin/verify', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-
-        if (!response.ok) {
-          localStorage.removeItem('admin_token');
-          router.push('/admin');
-          return;
-        }
-
-        // Fetch stats
-        await fetchStats(token);
-      } catch (error) {
-        console.error('Auth error:', error);
-        router.push('/admin');
-      }
-    };
-
-    verifyAuth();
-  }, [router]);
+    const token = localStorage.getItem('admin_token');
+    if (token) {
+      fetchStats(token);
+    }
+  }, []);
 
   const fetchStats = async (token: string) => {
     try {
@@ -201,7 +177,7 @@ export default function AdminDashboard() {
         <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-6 uppercase tracking-widest italic font-serif">Quick Actions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a
+            <Link
               href="/admin/dashboard/jewellers"
               className="flex items-center gap-4 p-4 bg-purple-500/5 border border-purple-500/20 rounded-xl hover:bg-purple-500/10 transition-all group"
             >
@@ -212,9 +188,9 @@ export default function AdminDashboard() {
                 <h3 className="text-white font-bold text-sm">Jewellers</h3>
                 <p className="text-gray-400 text-[10px] uppercase font-medium">Add/Edit Listings</p>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/admin/dashboard/cafes"
               className="flex items-center gap-4 p-4 bg-orange-500/5 border border-orange-500/20 rounded-xl hover:bg-orange-500/10 transition-all group"
             >
@@ -225,9 +201,9 @@ export default function AdminDashboard() {
                 <h3 className="text-white font-bold text-sm">Cafes</h3>
                 <p className="text-gray-400 text-[10px] uppercase font-medium">Update Dining</p>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/admin/dashboard/blog"
               className="flex items-center gap-4 p-4 bg-blue-500/5 border border-blue-500/20 rounded-xl hover:bg-blue-500/10 transition-all group"
             >
@@ -238,9 +214,9 @@ export default function AdminDashboard() {
                 <h3 className="text-white font-bold text-sm">Blog</h3>
                 <p className="text-gray-400 text-[10px] uppercase font-medium">Share News</p>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/admin/dashboard/shop-categories"
               className="flex items-center gap-4 p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl hover:bg-emerald-500/10 transition-all group"
             >
@@ -251,7 +227,7 @@ export default function AdminDashboard() {
                 <h3 className="text-white font-bold text-sm">Categories</h3>
                 <p className="text-gray-400 text-[10px] uppercase font-medium">Public Storefront</p>
               </div>
-            </a>
+            </Link>
 
           </div>
         </div>

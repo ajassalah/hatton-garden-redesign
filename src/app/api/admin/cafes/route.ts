@@ -22,6 +22,9 @@ function rowToCafe(row: any) {
 // GET all cafes
 export async function GET(request: NextRequest) {
   await ensureMigrated();
+  const user = authenticateRequest(request);
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
