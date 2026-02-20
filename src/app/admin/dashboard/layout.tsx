@@ -11,11 +11,13 @@ export default function DashboardLayout({
 }) {
   const router = useRouter();
   const [authorized, setAuthorized] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
       const token = localStorage.getItem('admin_token');
       if (!token) {
+        setIsVerifying(false);
         router.push('/admin');
         return;
       }
@@ -29,6 +31,7 @@ export default function DashboardLayout({
 
         if (response.status === 401 || response.status === 403) {
           localStorage.removeItem('admin_token');
+          setIsVerifying(false);
           router.push('/admin');
           return;
         }
@@ -38,14 +41,15 @@ export default function DashboardLayout({
         }
       } catch (error) {
         console.error('Auth check failed:', error);
-        // On network error, we don't necessarily want to log out
+      } finally {
+        setIsVerifying(false);
       }
     };
 
     checkAuth();
-  }, [router]);
+  }, []); // Run only once on layout mount
 
-  if (!authorized) {
+  if (isVerifying || !authorized) {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>

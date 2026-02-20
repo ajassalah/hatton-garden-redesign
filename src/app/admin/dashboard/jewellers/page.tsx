@@ -107,7 +107,6 @@ export default function JewellersManagement() {
       });
 
       if (!response.ok) {
-        router.push('/admin');
         return;
       }
 

@@ -106,7 +106,6 @@ export default function CafesManagement() {
       });
 
       if (!response.ok) {
-        router.push('/admin');
         return;
       }
 

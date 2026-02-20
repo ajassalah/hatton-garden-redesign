@@ -94,10 +94,6 @@ export default function BlogManagement() {
       });
 
       if (!response.ok) {
-        if (response.status === 401) {
-          localStorage.removeItem('admin_token');
-          router.push('/admin');
-        }
         return;
       }
 
